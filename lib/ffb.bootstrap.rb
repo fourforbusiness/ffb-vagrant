@@ -1,8 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 #
+# 
+# This file is the entrypoint that loads more ruby-code to execute the vagrant configuration
 
-# This file is just the entrypoint that loads more ruby-code to execute the vagrant configuration
 current_working_dir = File.dirname(File.expand_path(__FILE__))
 vagrant_ffb_dirname = ".ffb"
 vagrant_ffb_path = "#{current_working_dir}/#{vagrant_ffb_dirname}"
