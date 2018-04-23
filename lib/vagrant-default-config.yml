@@ -1,0 +1,70 @@
+---
+project:
+  tag: 'project_tag_not_set'
+vagrant:
+  hostmanager:
+    enabled: true
+    manage_host: false
+    manage_guest: true
+  require_version: '>= 2.0.3'
+default_guest:
+  postfix: local
+  box:
+    name: 'ubuntu/xenial64'
+    url: 'ubuntu/xenial64'
+    vagrant:
+      plugins:
+        general:
+          load: {}
+        win:
+          load: {}
+        mac:
+          load: {}
+        linux:
+          load: {}
+    provisioner:
+      ansible:
+        dir:
+          cwd: 'ansible'
+          playbooks: '.'
+          roles: 'roles'
+          galaxy:
+            requirements_dir: 'provisioning'
+            requirements_file: 'requirements.yml'
+            roles: 'roles-galaxy'
+          cfg_file: 'ansible.cfg'
+        galaxy:
+          cmd: "ansible-galaxy install --role-file=%{role_file} --roles-path=%{roles_path}"
+        playbooks:
+          - 'playbook.yml'
+        log_level: ''
+        extra_vars: {}
+        force_local: true
+    provider:
+      virtualbox:
+        memory: '4096'
+        cpus: '2'
+        ioapic: 'on'
+        natdnsproxy1: 'on'
+    network:
+      nics:
+        default:
+          ip: 'no.i.p.set'
+    filesystem:
+      prepare_web_root: true
+      folders:
+        web_root:
+          mounttype: 'none'
+          src: '../htdocs'
+          dst_base: '/var/www/vhosts/'
+          dst_target: ''
+          nfs:
+            bind_folder: '/vagrant-nfs'
+            owner: 'www-data'
+            group: 'vagrant'
+            create_as_user: true
+            perms: 'u=rwX:g=rwX:o='
+            create_with_perms: 'u=rwX:g=rwX:o='
+            chown_ignore: false
+            chgrp_ignore: false
+            chmod_ignore: false

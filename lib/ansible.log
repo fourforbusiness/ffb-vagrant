@@ -1,0 +1,861 @@
+2018-04-16 14:52:03,885 p=3576 u=vagrant |  - downloading role 'basic-setup', owned by fourforbusiness
+2018-04-16 14:52:06,348 p=3576 u=vagrant |  - downloading role from https://github.com/fourforbusiness/ansible-role-basic-setup/archive/master.tar.gz
+2018-04-16 14:52:08,294 p=3576 u=vagrant |  - extracting fourforbusiness.basic-setup to /vagrant/ansible/roles-galaxy/fourforbusiness.basic-setup
+2018-04-16 14:52:08,503 p=3576 u=vagrant |  - fourforbusiness.basic-setup (master) was installed successfully
+2018-04-16 14:52:08,504 p=3576 u=vagrant |  - adding dependency: fourforbusiness.oh-my-zsh
+2018-04-16 14:52:09,205 p=3576 u=vagrant |  - downloading role 'mysql-prepare-db', owned by fourforbusiness
+2018-04-16 14:52:10,700 p=3576 u=vagrant |  - downloading role from https://github.com/fourforbusiness/ansible-role-mysql-prepare-db/archive/master.tar.gz
+2018-04-16 14:52:12,582 p=3576 u=vagrant |  - extracting fourforbusiness.mysql-prepare-db to /vagrant/ansible/roles-galaxy/fourforbusiness.mysql-prepare-db
+2018-04-16 14:52:12,740 p=3576 u=vagrant |  - fourforbusiness.mysql-prepare-db (master) was installed successfully
+2018-04-16 14:52:12,741 p=3576 u=vagrant |  - adding dependency: geerlingguy.mysql
+2018-04-16 14:52:13,448 p=3576 u=vagrant |  - downloading role 'dev-lamp', owned by fourforbusiness
+2018-04-16 14:52:14,906 p=3576 u=vagrant |  - downloading role from https://github.com/fourforbusiness/ansible-role-dev-lamp/archive/master.tar.gz
+2018-04-16 14:52:16,777 p=3576 u=vagrant |  - extracting fourforbusiness.dev-lamp to /vagrant/ansible/roles-galaxy/fourforbusiness.dev-lamp
+2018-04-16 14:52:16,978 p=3576 u=vagrant |  - fourforbusiness.dev-lamp (master) was installed successfully
+2018-04-16 14:52:16,979 p=3576 u=vagrant |  - adding dependency: geerlingguy.apache
+2018-04-16 14:52:16,980 p=3576 u=vagrant |  - adding dependency: geerlingguy.php-versions
+2018-04-16 14:52:16,981 p=3576 u=vagrant |  - adding dependency: geerlingguy.php
+2018-04-16 14:52:16,982 p=3576 u=vagrant |  - adding dependency: geerlingguy.php-mysql
+2018-04-16 14:52:16,983 p=3576 u=vagrant |  - adding dependency: geerlingguy.php-xdebug
+2018-04-16 14:52:16,986 p=3576 u=vagrant |  - adding dependency: geerlingguy.apache-php-fpm
+2018-04-16 14:52:16,987 p=3576 u=vagrant |  - dependency geerlingguy.mysql already pending installation.
+2018-04-16 14:52:16,989 p=3576 u=vagrant |  - adding dependency: geerlingguy.blackfire
+2018-04-16 14:52:17,660 p=3576 u=vagrant |  - downloading role 'nodejs', owned by geerlingguy
+2018-04-16 14:52:19,127 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-nodejs/archive/4.1.2.tar.gz
+2018-04-16 14:52:20,952 p=3576 u=vagrant |  - extracting geerlingguy.nodejs to /vagrant/ansible/roles-galaxy/geerlingguy.nodejs
+2018-04-16 14:52:21,241 p=3576 u=vagrant |  - geerlingguy.nodejs (4.1.2) was installed successfully
+2018-04-16 14:52:21,975 p=3576 u=vagrant |  - downloading role 'composer', owned by geerlingguy
+2018-04-16 14:52:23,531 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-composer/archive/1.6.1.tar.gz
+2018-04-16 14:52:25,412 p=3576 u=vagrant |  - extracting geerlingguy.composer to /vagrant/ansible/roles-galaxy/geerlingguy.composer
+2018-04-16 14:52:25,571 p=3576 u=vagrant |  - geerlingguy.composer (1.6.1) was installed successfully
+2018-04-16 14:52:26,270 p=3576 u=vagrant |  - downloading role 'oh-my-zsh', owned by fourforbusiness
+2018-04-16 14:52:27,886 p=3576 u=vagrant |  - downloading role from https://github.com/fourforbusiness/ansible-role-oh-my-zsh/archive/1.2.2.tar.gz
+2018-04-16 14:52:29,818 p=3576 u=vagrant |  - extracting fourforbusiness.oh-my-zsh to /vagrant/ansible/roles-galaxy/fourforbusiness.oh-my-zsh
+2018-04-16 14:52:30,050 p=3576 u=vagrant |  - fourforbusiness.oh-my-zsh (1.2.2) was installed successfully
+2018-04-16 14:52:30,730 p=3576 u=vagrant |  - downloading role 'mysql', owned by geerlingguy
+2018-04-16 14:52:33,021 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-mysql/archive/2.8.3.tar.gz
+2018-04-16 14:52:34,947 p=3576 u=vagrant |  - extracting geerlingguy.mysql to /vagrant/ansible/roles-galaxy/geerlingguy.mysql
+2018-04-16 14:52:35,323 p=3576 u=vagrant |  - geerlingguy.mysql (2.8.3) was installed successfully
+2018-04-16 14:52:36,061 p=3576 u=vagrant |  - downloading role 'apache', owned by geerlingguy
+2018-04-16 14:52:37,634 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-apache/archive/3.0.0.tar.gz
+2018-04-16 14:52:40,023 p=3576 u=vagrant |  - extracting geerlingguy.apache to /vagrant/ansible/roles-galaxy/geerlingguy.apache
+2018-04-16 14:52:40,349 p=3576 u=vagrant |  - geerlingguy.apache (3.0.0) was installed successfully
+2018-04-16 14:52:41,011 p=3576 u=vagrant |  - downloading role 'php-versions', owned by geerlingguy
+2018-04-16 14:52:42,532 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-php-versions/archive/2.0.0.tar.gz
+2018-04-16 14:52:44,396 p=3576 u=vagrant |  - extracting geerlingguy.php-versions to /vagrant/ansible/roles-galaxy/geerlingguy.php-versions
+2018-04-16 14:52:44,598 p=3576 u=vagrant |  - geerlingguy.php-versions (2.0.0) was installed successfully
+2018-04-16 14:52:45,307 p=3576 u=vagrant |  - downloading role 'php', owned by geerlingguy
+2018-04-16 14:52:47,672 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-php/archive/3.5.2.tar.gz
+2018-04-16 14:52:49,532 p=3576 u=vagrant |  - extracting geerlingguy.php to /vagrant/ansible/roles-galaxy/geerlingguy.php
+2018-04-16 14:52:49,864 p=3576 u=vagrant |  - geerlingguy.php (3.5.2) was installed successfully
+2018-04-16 14:52:50,560 p=3576 u=vagrant |  - downloading role 'php-mysql', owned by geerlingguy
+2018-04-16 14:52:52,162 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-php-mysql/archive/2.0.1.tar.gz
+2018-04-16 14:52:54,042 p=3576 u=vagrant |  - extracting geerlingguy.php-mysql to /vagrant/ansible/roles-galaxy/geerlingguy.php-mysql
+2018-04-16 14:52:54,182 p=3576 u=vagrant |  - geerlingguy.php-mysql (2.0.1) was installed successfully
+2018-04-16 14:52:54,189 p=3576 u=vagrant |   [WARNING]: - dependency geerlingguy.php from role geerlingguy.php-mysql
+differs from already installed version (3.5.2), skipping
+
+2018-04-16 14:52:54,871 p=3576 u=vagrant |  - downloading role 'php-xdebug', owned by geerlingguy
+2018-04-16 14:52:56,571 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-php-xdebug/archive/2.5.0.tar.gz
+2018-04-16 14:52:58,416 p=3576 u=vagrant |  - extracting geerlingguy.php-xdebug to /vagrant/ansible/roles-galaxy/geerlingguy.php-xdebug
+2018-04-16 14:52:58,613 p=3576 u=vagrant |  - geerlingguy.php-xdebug (2.5.0) was installed successfully
+2018-04-16 14:52:58,618 p=3576 u=vagrant |   [WARNING]: - dependency geerlingguy.php from role geerlingguy.php-xdebug
+differs from already installed version (3.5.2), skipping
+
+2018-04-16 14:52:59,283 p=3576 u=vagrant |  - downloading role 'apache-php-fpm', owned by geerlingguy
+2018-04-16 14:53:00,954 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-apache-php-fpm/archive/1.1.0.tar.gz
+2018-04-16 14:53:02,806 p=3576 u=vagrant |  - extracting geerlingguy.apache-php-fpm to /vagrant/ansible/roles-galaxy/geerlingguy.apache-php-fpm
+2018-04-16 14:53:02,898 p=3576 u=vagrant |  - geerlingguy.apache-php-fpm (1.1.0) was installed successfully
+2018-04-16 14:53:02,904 p=3576 u=vagrant |   [WARNING]: - dependency geerlingguy.apache from role geerlingguy.apache-php-
+fpm differs from already installed version (3.0.0), skipping
+
+2018-04-16 14:53:03,589 p=3576 u=vagrant |  - downloading role 'blackfire', owned by geerlingguy
+2018-04-16 14:53:05,159 p=3576 u=vagrant |  - downloading role from https://github.com/geerlingguy/ansible-role-blackfire/archive/1.0.0.tar.gz
+2018-04-16 14:53:07,257 p=3576 u=vagrant |  - extracting geerlingguy.blackfire to /vagrant/ansible/roles-galaxy/geerlingguy.blackfire
+2018-04-16 14:53:07,415 p=3576 u=vagrant |  - geerlingguy.blackfire (1.0.0) was installed successfully
+2018-04-16 14:53:07,419 p=3576 u=vagrant |   [WARNING]: - dependency geerlingguy.php from role geerlingguy.blackfire
+differs from already installed version (3.5.2), skipping
+
+2018-04-16 14:53:10,774 p=3611 u=vagrant |  PLAY [Install Sulu] ************************************************************
+2018-04-16 14:53:10,926 p=3611 u=vagrant |  TASK [Gathering Facts] *********************************************************
+2018-04-16 14:53:10,926 p=3611 u=vagrant |  Monday 16 April 2018  14:53:10 +0000 (0:00:00.217)       0:00:00.217 ********** 
+2018-04-16 14:53:12,570 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:12,631 p=3611 u=vagrant |  TASK [load all vars] ***********************************************************
+2018-04-16 14:53:12,631 p=3611 u=vagrant |  Monday 16 April 2018  14:53:12 +0000 (0:00:01.704)       0:00:01.922 ********** 
+2018-04-16 14:53:12,704 p=3611 u=vagrant |   [WARNING]: While constructing a mapping from True, line 5, column 1, found a
+duplicate dict key (nodejs_npm_global_packages). Using last defined value only.
+
+2018-04-16 14:53:12,737 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:12,782 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : add git-ppa-repository (debian)] *************
+2018-04-16 14:53:12,783 p=3611 u=vagrant |  Monday 16 April 2018  14:53:12 +0000 (0:00:00.151)       0:00:02.073 ********** 
+2018-04-16 14:53:24,350 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 14:53:24,391 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : install dependencies] ************************
+2018-04-16 14:53:24,392 p=3611 u=vagrant |  Monday 16 April 2018  14:53:24 +0000 (0:00:11.608)       0:00:13.682 ********** 
+2018-04-16 14:53:25,564 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=git)
+2018-04-16 14:53:31,075 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=zsh)
+2018-04-16 14:53:31,117 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : clone oh-my-zsh for users] *******************
+2018-04-16 14:53:31,118 p=3611 u=vagrant |  Monday 16 April 2018  14:53:31 +0000 (0:00:06.726)       0:00:20.408 ********** 
+2018-04-16 14:53:31,186 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : set ownership and permissions of oh-my-zsh for users] ***
+2018-04-16 14:53:31,187 p=3611 u=vagrant |  Monday 16 April 2018  14:53:31 +0000 (0:00:00.068)       0:00:20.477 ********** 
+2018-04-16 14:53:31,256 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : set default shell for users] *****************
+2018-04-16 14:53:31,256 p=3611 u=vagrant |  Monday 16 April 2018  14:53:31 +0000 (0:00:00.069)       0:00:20.547 ********** 
+2018-04-16 14:53:31,324 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : write .zshrc for users] **********************
+2018-04-16 14:53:31,325 p=3611 u=vagrant |  Monday 16 April 2018  14:53:31 +0000 (0:00:00.068)       0:00:20.615 ********** 
+2018-04-16 14:53:31,399 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : check if console-setup exists] ***************
+2018-04-16 14:53:31,400 p=3611 u=vagrant |  Monday 16 April 2018  14:53:31 +0000 (0:00:00.075)       0:00:20.690 ********** 
+2018-04-16 14:53:31,993 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:32,036 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : install console-setup] ***********************
+2018-04-16 14:53:32,037 p=3611 u=vagrant |  Monday 16 April 2018  14:53:32 +0000 (0:00:00.636)       0:00:21.327 ********** 
+2018-04-16 14:53:32,853 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:32,900 p=3611 u=vagrant |  TASK [fourforbusiness.oh-my-zsh : edit console-setup to utf-8] *****************
+2018-04-16 14:53:32,901 p=3611 u=vagrant |  Monday 16 April 2018  14:53:32 +0000 (0:00:00.863)       0:00:22.191 ********** 
+2018-04-16 14:53:33,475 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:33,515 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : include_tasks] *****************************
+2018-04-16 14:53:33,516 p=3611 u=vagrant |  Monday 16 April 2018  14:53:33 +0000 (0:00:00.615)       0:00:22.806 ********** 
+2018-04-16 14:53:33,589 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/fourforbusiness.basic-setup/tasks/install-system-software.yml for practice_sulu_local
+2018-04-16 14:53:33,636 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : Update APT Cache] **************************
+2018-04-16 14:53:33,636 p=3611 u=vagrant |  Monday 16 April 2018  14:53:33 +0000 (0:00:00.120)       0:00:22.927 ********** 
+2018-04-16 14:53:35,926 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:35,969 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : Install software] **************************
+2018-04-16 14:53:35,969 p=3611 u=vagrant |  Monday 16 April 2018  14:53:35 +0000 (0:00:02.332)       0:00:25.260 ********** 
+2018-04-16 14:53:36,035 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : include_tasks] *****************************
+2018-04-16 14:53:36,036 p=3611 u=vagrant |  Monday 16 April 2018  14:53:36 +0000 (0:00:00.066)       0:00:25.326 ********** 
+2018-04-16 14:53:36,107 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/fourforbusiness.basic-setup/tasks/generate-locales.yml for practice_sulu_local
+2018-04-16 14:53:36,154 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : Ensure locales is installed] ***************
+2018-04-16 14:53:36,154 p=3611 u=vagrant |  Monday 16 April 2018  14:53:36 +0000 (0:00:00.118)       0:00:25.445 ********** 
+2018-04-16 14:53:41,221 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:41,282 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : Get current locales] ***********************
+2018-04-16 14:53:41,283 p=3611 u=vagrant |  Monday 16 April 2018  14:53:41 +0000 (0:00:05.128)       0:00:30.573 ********** 
+2018-04-16 14:53:41,948 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:41,995 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : Generate locales] **************************
+2018-04-16 14:53:41,996 p=3611 u=vagrant |  Monday 16 April 2018  14:53:41 +0000 (0:00:00.712)       0:00:31.286 ********** 
+2018-04-16 14:53:43,727 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=en_US)
+2018-04-16 14:53:43,737 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=en_US.utf8) 
+2018-04-16 14:53:45,391 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=de_DE)
+2018-04-16 14:53:47,806 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=de_DE.utf8)
+2018-04-16 14:53:47,849 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : include_tasks] *****************************
+2018-04-16 14:53:47,850 p=3611 u=vagrant |  Monday 16 April 2018  14:53:47 +0000 (0:00:05.854)       0:00:37.140 ********** 
+2018-04-16 14:53:47,930 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/fourforbusiness.basic-setup/tasks/set-timezone.yml for practice_sulu_local
+2018-04-16 14:53:47,986 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : idempotency check] *************************
+2018-04-16 14:53:47,986 p=3611 u=vagrant |  Monday 16 April 2018  14:53:47 +0000 (0:00:00.136)       0:00:37.277 ********** 
+2018-04-16 14:53:48,289 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 14:53:48,331 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : delete timezone file if content does not match desired timezone] ***
+2018-04-16 14:53:48,332 p=3611 u=vagrant |  Monday 16 April 2018  14:53:48 +0000 (0:00:00.345)       0:00:37.622 ********** 
+2018-04-16 14:53:48,983 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 14:53:49,027 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : disable current localtime] *****************
+2018-04-16 14:53:49,027 p=3611 u=vagrant |  Monday 16 April 2018  14:53:49 +0000 (0:00:00.695)       0:00:38.318 ********** 
+2018-04-16 14:53:49,325 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 14:53:49,367 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : write timezone file] ***********************
+2018-04-16 14:53:49,368 p=3611 u=vagrant |  Monday 16 April 2018  14:53:49 +0000 (0:00:00.340)       0:00:38.658 ********** 
+2018-04-16 14:53:49,682 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 14:53:49,723 p=3611 u=vagrant |  TASK [fourforbusiness.basic-setup : reconfigure timezone] **********************
+2018-04-16 14:53:49,724 p=3611 u=vagrant |  Monday 16 April 2018  14:53:49 +0000 (0:00:00.356)       0:00:39.014 ********** 
+2018-04-16 16:53:50,556 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:53:50,601 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Set up the Nodesource RPM directory for Node.js > 0.10.] ***
+2018-04-16 16:53:50,602 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.877)       0:00:39.892 ********** 
+2018-04-16 16:53:50,632 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:50,677 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Set up the Nodesource RPM variable for Node.js == 0.10.] ***
+2018-04-16 16:53:50,677 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.075)       0:00:39.968 ********** 
+2018-04-16 16:53:50,706 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:50,754 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Import Nodesource RPM key (CentOS < 7).] ************
+2018-04-16 16:53:50,755 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.077)       0:00:40.045 ********** 
+2018-04-16 16:53:50,789 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:50,837 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Import Nodesource RPM key (CentOS 7+)..] ************
+2018-04-16 16:53:50,837 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.082)       0:00:40.128 ********** 
+2018-04-16 16:53:50,870 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:50,918 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Add Nodesource repositories for Node.js (CentOS < 7).] ***
+2018-04-16 16:53:50,919 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.081)       0:00:40.209 ********** 
+2018-04-16 16:53:50,950 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:50,997 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Add Nodesource repositories for Node.js (CentOS 7+).] ***
+2018-04-16 16:53:50,998 p=3611 u=vagrant |  Monday 16 April 2018  16:53:50 +0200 (0:00:00.078)       0:00:40.288 ********** 
+2018-04-16 16:53:51,031 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:51,076 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Ensure Node.js and npm are installed.] **************
+2018-04-16 16:53:51,077 p=3611 u=vagrant |  Monday 16 April 2018  16:53:51 +0200 (0:00:00.079)       0:00:40.367 ********** 
+2018-04-16 16:53:51,107 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:53:51,150 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Ensure apt-transport-https is installed.] ***********
+2018-04-16 16:53:51,150 p=3611 u=vagrant |  Monday 16 April 2018  16:53:51 +0200 (0:00:00.073)       0:00:40.441 ********** 
+2018-04-16 16:53:52,212 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:53:52,261 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Add Nodesource apt key.] ****************************
+2018-04-16 16:53:52,262 p=3611 u=vagrant |  Monday 16 April 2018  16:53:52 +0200 (0:00:01.111)       0:00:41.552 ********** 
+2018-04-16 16:53:54,168 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:53:54,212 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Add NodeSource repositories for Node.js.] ***********
+2018-04-16 16:53:54,213 p=3611 u=vagrant |  Monday 16 April 2018  16:53:54 +0200 (0:00:01.951)       0:00:43.504 ********** 
+2018-04-16 16:54:04,718 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=deb https://deb.nodesource.com/node_6.x xenial main)
+2018-04-16 16:54:10,802 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=deb-src https://deb.nodesource.com/node_6.x xenial main)
+2018-04-16 16:54:10,847 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Update apt cache if repo was added.] ****************
+2018-04-16 16:54:10,848 p=3611 u=vagrant |  Monday 16 April 2018  16:54:10 +0200 (0:00:16.635)       0:01:00.139 ********** 
+2018-04-16 16:54:13,392 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:54:13,432 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Ensure Node.js and npm are installed.] **************
+2018-04-16 16:54:13,432 p=3611 u=vagrant |  Monday 16 April 2018  16:54:13 +0200 (0:00:02.583)       0:01:02.723 ********** 
+2018-04-16 16:54:22,175 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:54:22,219 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Define nodejs_install_npm_user] *********************
+2018-04-16 16:54:22,220 p=3611 u=vagrant |  Monday 16 April 2018  16:54:22 +0200 (0:00:08.787)       0:01:11.510 ********** 
+2018-04-16 16:54:22,403 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:54:22,444 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Create npm global directory] ************************
+2018-04-16 16:54:22,444 p=3611 u=vagrant |  Monday 16 April 2018  16:54:22 +0200 (0:00:00.224)       0:01:11.735 ********** 
+2018-04-16 16:54:22,841 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:54:22,880 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Add npm_config_prefix bin directory to global $PATH.] ***
+2018-04-16 16:54:22,880 p=3611 u=vagrant |  Monday 16 April 2018  16:54:22 +0200 (0:00:00.435)       0:01:12.171 ********** 
+2018-04-16 16:54:23,678 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:54:23,722 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Ensure npm global packages are installed.] **********
+2018-04-16 16:54:23,723 p=3611 u=vagrant |  Monday 16 April 2018  16:54:23 +0200 (0:00:00.842)       0:01:13.013 ********** 
+2018-04-16 16:54:44,661 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'name': u'gulp'})
+2018-04-16 16:54:53,338 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'name': u'yarn'})
+2018-04-16 16:54:53,378 p=3611 u=vagrant |  TASK [geerlingguy.nodejs : Install packages defined in a given package.json.] ***
+2018-04-16 16:54:53,379 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:29.655)       0:01:42.669 ********** 
+2018-04-16 16:54:53,405 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:54:53,447 p=3611 u=vagrant |  TASK [geerlingguy.apache : Include OS-specific variables.] *********************
+2018-04-16 16:54:53,447 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:00.068)       0:01:42.737 ********** 
+2018-04-16 16:54:53,531 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:54:53,572 p=3611 u=vagrant |  TASK [geerlingguy.apache : Include variables for Amazon Linux.] ****************
+2018-04-16 16:54:53,572 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:00.125)       0:01:42.863 ********** 
+2018-04-16 16:54:53,602 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:54:53,645 p=3611 u=vagrant |  TASK [geerlingguy.apache : Define apache_packages.] ****************************
+2018-04-16 16:54:53,646 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:00.073)       0:01:42.936 ********** 
+2018-04-16 16:54:53,724 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:54:53,765 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_tasks] **************************************
+2018-04-16 16:54:53,766 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:00.120)       0:01:43.056 ********** 
+2018-04-16 16:54:53,842 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.apache/tasks/setup-Debian.yml for practice_sulu_local
+2018-04-16 16:54:53,889 p=3611 u=vagrant |  TASK [geerlingguy.apache : Update apt cache.] **********************************
+2018-04-16 16:54:53,890 p=3611 u=vagrant |  Monday 16 April 2018  16:54:53 +0200 (0:00:00.124)       0:01:43.180 ********** 
+2018-04-16 16:54:54,706 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:54:54,748 p=3611 u=vagrant |  TASK [geerlingguy.apache : Ensure Apache is installed on Debian.] **************
+2018-04-16 16:54:54,749 p=3611 u=vagrant |  Monday 16 April 2018  16:54:54 +0200 (0:00:00.859)       0:01:44.039 ********** 
+2018-04-16 16:55:38,490 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=[u'apache2', u'apache2-utils'])
+2018-04-16 16:55:38,532 p=3611 u=vagrant |  TASK [geerlingguy.apache : Get installed version of Apache.] *******************
+2018-04-16 16:55:38,533 p=3611 u=vagrant |  Monday 16 April 2018  16:55:38 +0200 (0:00:43.783)       0:02:27.823 ********** 
+2018-04-16 16:55:38,939 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:38,982 p=3611 u=vagrant |  TASK [geerlingguy.apache : Create apache_version variable.] ********************
+2018-04-16 16:55:38,982 p=3611 u=vagrant |  Monday 16 April 2018  16:55:38 +0200 (0:00:00.449)       0:02:28.273 ********** 
+2018-04-16 16:55:39,062 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:39,102 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_vars] ***************************************
+2018-04-16 16:55:39,102 p=3611 u=vagrant |  Monday 16 April 2018  16:55:39 +0200 (0:00:00.119)       0:02:28.393 ********** 
+2018-04-16 16:55:39,131 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:39,175 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_vars] ***************************************
+2018-04-16 16:55:39,176 p=3611 u=vagrant |  Monday 16 April 2018  16:55:39 +0200 (0:00:00.073)       0:02:28.466 ********** 
+2018-04-16 16:55:39,267 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:39,307 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_tasks] **************************************
+2018-04-16 16:55:39,308 p=3611 u=vagrant |  Monday 16 April 2018  16:55:39 +0200 (0:00:00.131)       0:02:28.598 ********** 
+2018-04-16 16:55:39,391 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.apache/tasks/configure-Debian.yml for practice_sulu_local
+2018-04-16 16:55:39,441 p=3611 u=vagrant |  TASK [geerlingguy.apache : Configure Apache.] **********************************
+2018-04-16 16:55:39,442 p=3611 u=vagrant |  Monday 16 April 2018  16:55:39 +0200 (0:00:00.133)       0:02:28.732 ********** 
+2018-04-16 16:55:39,757 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'regexp': u'^Listen ', u'line': u'Listen 80'})
+2018-04-16 16:55:39,801 p=3611 u=vagrant |  TASK [geerlingguy.apache : Enable Apache mods.] ********************************
+2018-04-16 16:55:39,802 p=3611 u=vagrant |  Monday 16 April 2018  16:55:39 +0200 (0:00:00.359)       0:02:29.092 ********** 
+2018-04-16 16:55:40,118 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=rewrite.load)
+2018-04-16 16:55:40,363 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=ssl.load)
+2018-04-16 16:55:40,423 p=3611 u=vagrant |  TASK [geerlingguy.apache : Disable Apache mods.] *******************************
+2018-04-16 16:55:40,423 p=3611 u=vagrant |  Monday 16 April 2018  16:55:40 +0200 (0:00:00.621)       0:02:29.714 ********** 
+2018-04-16 16:55:40,492 p=3611 u=vagrant |  TASK [geerlingguy.apache : Check whether certificates defined in vhosts exist.] ***
+2018-04-16 16:55:40,493 p=3611 u=vagrant |  Monday 16 April 2018  16:55:40 +0200 (0:00:00.069)       0:02:29.783 ********** 
+2018-04-16 16:55:40,560 p=3611 u=vagrant |  TASK [geerlingguy.apache : Add apache vhosts configuration.] *******************
+2018-04-16 16:55:40,560 p=3611 u=vagrant |  Monday 16 April 2018  16:55:40 +0200 (0:00:00.067)       0:02:29.851 ********** 
+2018-04-16 16:55:41,185 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:55:41,225 p=3611 u=vagrant |  TASK [geerlingguy.apache : Add vhost symlink in sites-enabled.] ****************
+2018-04-16 16:55:41,226 p=3611 u=vagrant |  Monday 16 April 2018  16:55:41 +0200 (0:00:00.665)       0:02:30.516 ********** 
+2018-04-16 16:55:41,542 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:55:41,583 p=3611 u=vagrant |  TASK [geerlingguy.apache : Remove default vhost in sites-enabled.] *************
+2018-04-16 16:55:41,584 p=3611 u=vagrant |  Monday 16 April 2018  16:55:41 +0200 (0:00:00.357)       0:02:30.874 ********** 
+2018-04-16 16:55:41,893 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:55:41,934 p=3611 u=vagrant |  TASK [geerlingguy.apache : Ensure Apache has selected state and enabled on boot.] ***
+2018-04-16 16:55:41,935 p=3611 u=vagrant |  Monday 16 April 2018  16:55:41 +0200 (0:00:00.350)       0:02:31.225 ********** 
+2018-04-16 16:55:42,653 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:42,694 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Include OS-specific variables.] ***************
+2018-04-16 16:55:42,695 p=3611 u=vagrant |  Monday 16 April 2018  16:55:42 +0200 (0:00:00.760)       0:02:31.985 ********** 
+2018-04-16 16:55:42,811 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/vagrant/ansible/roles-galaxy/geerlingguy.php-versions/tasks/../vars/Debian.yml)
+2018-04-16 16:55:42,864 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Define PHP variables.] ************************
+2018-04-16 16:55:42,865 p=3611 u=vagrant |  Monday 16 April 2018  16:55:42 +0200 (0:00:00.169)       0:02:32.155 ********** 
+2018-04-16 16:55:43,132 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_extension_conf_paths', 'key': u'php_extension_conf_paths'})
+2018-04-16 16:55:43,286 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_fpm_daemon', 'key': u'php_fpm_daemon'})
+2018-04-16 16:55:43,444 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_uploadprogress_module_path', 'key': u'php_uploadprogress_module_path'})
+2018-04-16 16:55:43,691 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_xhprof_module_path', 'key': u'php_xhprof_module_path'})
+2018-04-16 16:55:43,862 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_fpm_pool_conf_path', 'key': u'php_fpm_pool_conf_path'})
+2018-04-16 16:55:44,027 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_conf_paths', 'key': u'php_conf_paths'})
+2018-04-16 16:55:44,221 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_xdebug_module_path', 'key': u'php_xdebug_module_path'})
+2018-04-16 16:55:44,384 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_pgsql_package', 'key': u'php_pgsql_package'})
+2018-04-16 16:55:44,550 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_packages', 'key': u'php_packages'})
+2018-04-16 16:55:44,714 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_mysql_package', 'key': u'php_mysql_package'})
+2018-04-16 16:55:44,897 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_memcached_package', 'key': u'php_memcached_package'})
+2018-04-16 16:55:45,067 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_fpm_conf_path', 'key': u'php_fpm_conf_path'})
+2018-04-16 16:55:45,232 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_tideways_module_path', 'key': u'php_tideways_module_path'})
+2018-04-16 16:55:45,400 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={'value': u'__php_redis_package', 'key': u'php_redis_package'})
+2018-04-16 16:55:45,452 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : include] **************************************
+2018-04-16 16:55:45,452 p=3611 u=vagrant |  Monday 16 April 2018  16:55:45 +0200 (0:00:02.587)       0:02:34.743 ********** 
+2018-04-16 16:55:45,541 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php-versions/tasks/setup-Debian.yml for practice_sulu_local
+2018-04-16 16:55:45,591 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Set the correct opcache filename (Ubuntu/Debian).] ***
+2018-04-16 16:55:45,591 p=3611 u=vagrant |  Monday 16 April 2018  16:55:45 +0200 (0:00:00.138)       0:02:34.882 ********** 
+2018-04-16 16:55:45,667 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:45,711 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Add repository for PHP versions (Ubuntu).] ****
+2018-04-16 16:55:45,712 p=3611 u=vagrant |  Monday 16 April 2018  16:55:45 +0200 (0:00:00.120)       0:02:35.002 ********** 
+2018-04-16 16:55:55,918 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:55:55,963 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Add repository for PHP 5 compatibility packages (Ubuntu).] ***
+2018-04-16 16:55:55,964 p=3611 u=vagrant |  Monday 16 April 2018  16:55:55 +0200 (0:00:10.251)       0:02:45.254 ********** 
+2018-04-16 16:55:55,992 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:56,034 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Add dependencies for PHP versions (Debian).] ***
+2018-04-16 16:55:56,035 p=3611 u=vagrant |  Monday 16 April 2018  16:55:56 +0200 (0:00:00.071)       0:02:45.325 ********** 
+2018-04-16 16:55:56,085 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[]) 
+2018-04-16 16:55:56,131 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Add Ondrej Sury's apt key (Debian).] **********
+2018-04-16 16:55:56,131 p=3611 u=vagrant |  Monday 16 April 2018  16:55:56 +0200 (0:00:00.096)       0:02:45.422 ********** 
+2018-04-16 16:55:56,162 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:56,207 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Add Ondrej Sury's repo (Debian).] *************
+2018-04-16 16:55:56,209 p=3611 u=vagrant |  Monday 16 April 2018  16:55:56 +0200 (0:00:00.077)       0:02:45.499 ********** 
+2018-04-16 16:55:56,235 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:56,279 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Update apt caches after repo is added (Debian).] ***
+2018-04-16 16:55:56,279 p=3611 u=vagrant |  Monday 16 April 2018  16:55:56 +0200 (0:00:00.070)       0:02:45.570 ********** 
+2018-04-16 16:55:56,308 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:56,351 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Purge PHP version packages.] ******************
+2018-04-16 16:55:56,351 p=3611 u=vagrant |  Monday 16 April 2018  16:55:56 +0200 (0:00:00.072)       0:02:45.642 ********** 
+2018-04-16 16:55:57,226 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=[u'php5.6-common', u'php7.0-common', u'php7.2-common'])
+2018-04-16 16:55:57,268 p=3611 u=vagrant |  TASK [geerlingguy.php-versions : Set the correct XHProf package when PHP 5.6 is used.] ***
+2018-04-16 16:55:57,269 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.917)       0:02:46.559 ********** 
+2018-04-16 16:55:57,299 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:57,343 p=3611 u=vagrant |  TASK [geerlingguy.php : Include OS-specific variables.] ************************
+2018-04-16 16:55:57,343 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.074)       0:02:46.634 ********** 
+2018-04-16 16:55:57,436 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:57,480 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_packages.] **********************************
+2018-04-16 16:55:57,480 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.136)       0:02:46.771 ********** 
+2018-04-16 16:55:57,507 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:57,552 p=3611 u=vagrant |  TASK [geerlingguy.php : Define extra php_packages.] ****************************
+2018-04-16 16:55:57,552 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.072)       0:02:46.843 ********** 
+2018-04-16 16:55:57,633 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:57,675 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_webserver_daemon.] **************************
+2018-04-16 16:55:57,676 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.123)       0:02:46.966 ********** 
+2018-04-16 16:55:57,755 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:57,796 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_conf_paths.] ********************************
+2018-04-16 16:55:57,797 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.121)       0:02:47.088 ********** 
+2018-04-16 16:55:57,825 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:57,868 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_extension_conf_paths.] **********************
+2018-04-16 16:55:57,869 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.071)       0:02:47.160 ********** 
+2018-04-16 16:55:57,900 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:57,941 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_apc_conf_filename.] *************************
+2018-04-16 16:55:57,942 p=3611 u=vagrant |  Monday 16 April 2018  16:55:57 +0200 (0:00:00.072)       0:02:47.232 ********** 
+2018-04-16 16:55:58,113 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:58,153 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_opcache_conf_filename (Ubuntu 16.04).] ******
+2018-04-16 16:55:58,154 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.211)       0:02:47.444 ********** 
+2018-04-16 16:55:58,185 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:58,226 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_opcache_conf_filename.] *********************
+2018-04-16 16:55:58,226 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.072)       0:02:47.517 ********** 
+2018-04-16 16:55:58,255 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:58,298 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_fpm_conf_path.] *****************************
+2018-04-16 16:55:58,298 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.071)       0:02:47.589 ********** 
+2018-04-16 16:55:58,325 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:58,372 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:55:58,373 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.074)       0:02:47.663 ********** 
+2018-04-16 16:55:58,404 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:55:58,444 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:55:58,445 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.072)       0:02:47.736 ********** 
+2018-04-16 16:55:58,532 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php/tasks/setup-Debian.yml for practice_sulu_local
+2018-04-16 16:55:58,579 p=3611 u=vagrant |  TASK [geerlingguy.php : Update apt cache.] *************************************
+2018-04-16 16:55:58,580 p=3611 u=vagrant |  Monday 16 April 2018  16:55:58 +0200 (0:00:00.134)       0:02:47.870 ********** 
+2018-04-16 16:55:59,484 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:55:59,525 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure PHP packages are installed.] ********************
+2018-04-16 16:55:59,526 p=3611 u=vagrant |  Monday 16 April 2018  16:55:59 +0200 (0:00:00.945)       0:02:48.816 ********** 
+2018-04-16 16:57:35,170 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=[u'php7.1', u'php7.1-apcu', u'php7.1-cli', u'php7.1-common', u'php7.1-curl', u'php7.1-dev', u'php7.1-fpm', u'php7.1-gd', u'php7.1-imap', u'php7.1-json', u'php7.1-mbstring', u'php7.1-mcrypt', u'php7.1-opcache', u'php7.1-sqlite3', u'php7.1-xml', u'php7.1-yaml', u'php7.1-zip'])
+2018-04-16 16:57:35,355 p=3611 u=vagrant |  TASK [geerlingguy.php : Delete APCu configuration file if this role will provide one.] ***
+2018-04-16 16:57:35,356 p=3611 u=vagrant |  Monday 16 April 2018  16:57:35 +0200 (0:01:35.829)       0:04:24.646 ********** 
+2018-04-16 16:57:35,705 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:35,992 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:36,279 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:36,368 p=3611 u=vagrant |  TASK [geerlingguy.php : Delete OpCache configuration file if this role will provide one.] ***
+2018-04-16 16:57:36,368 p=3611 u=vagrant |  Monday 16 April 2018  16:57:36 +0200 (0:00:01.012)       0:04:25.659 ********** 
+2018-04-16 16:57:36,731 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:37,014 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:37,299 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:37,403 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:57:37,404 p=3611 u=vagrant |  Monday 16 April 2018  16:57:37 +0200 (0:00:01.035)       0:04:26.694 ********** 
+2018-04-16 16:57:37,438 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:37,487 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:57:37,488 p=3611 u=vagrant |  Monday 16 April 2018  16:57:37 +0200 (0:00:00.083)       0:04:26.778 ********** 
+2018-04-16 16:57:37,567 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php/tasks/configure.yml for practice_sulu_local
+2018-04-16 16:57:37,630 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure configuration directories exist.] ***************
+2018-04-16 16:57:37,631 p=3611 u=vagrant |  Monday 16 April 2018  16:57:37 +0200 (0:00:00.143)       0:04:26.921 ********** 
+2018-04-16 16:57:37,978 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/fpm)
+2018-04-16 16:57:38,237 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2)
+2018-04-16 16:57:38,481 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/cli)
+2018-04-16 16:57:38,728 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:38,970 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:39,223 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:39,269 p=3611 u=vagrant |  TASK [geerlingguy.php : Place PHP configuration file in place.] ****************
+2018-04-16 16:57:39,270 p=3611 u=vagrant |  Monday 16 April 2018  16:57:39 +0200 (0:00:01.639)       0:04:28.560 ********** 
+2018-04-16 16:57:39,893 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm)
+2018-04-16 16:57:40,395 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2)
+2018-04-16 16:57:40,956 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli)
+2018-04-16 16:57:41,040 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:57:41,040 p=3611 u=vagrant |  Monday 16 April 2018  16:57:41 +0200 (0:00:01.770)       0:04:30.331 ********** 
+2018-04-16 16:57:41,120 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php/tasks/configure-apcu.yml for practice_sulu_local
+2018-04-16 16:57:41,181 p=3611 u=vagrant |  TASK [geerlingguy.php : Check for existing APCu config files.] *****************
+2018-04-16 16:57:41,181 p=3611 u=vagrant |  Monday 16 April 2018  16:57:41 +0200 (0:00:00.140)       0:04:30.472 ********** 
+2018-04-16 16:57:41,849 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:42,094 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:42,341 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:42,391 p=3611 u=vagrant |  TASK [geerlingguy.php : Remove any non-role-supplied APCu config files.] *******
+2018-04-16 16:57:42,392 p=3611 u=vagrant |  Monday 16 April 2018  16:57:42 +0200 (0:00:01.210)       0:04:31.683 ********** 
+2018-04-16 16:57:42,469 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure APCu config file is present.] *******************
+2018-04-16 16:57:42,469 p=3611 u=vagrant |  Monday 16 April 2018  16:57:42 +0200 (0:00:00.076)       0:04:31.760 ********** 
+2018-04-16 16:57:43,153 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:43,657 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:44,172 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:44,251 p=3611 u=vagrant |  TASK [geerlingguy.php : Remove APCu config file if APC is disabled.] ***********
+2018-04-16 16:57:44,252 p=3611 u=vagrant |  Monday 16 April 2018  16:57:44 +0200 (0:00:01.782)       0:04:33.542 ********** 
+2018-04-16 16:57:44,295 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d) 
+2018-04-16 16:57:44,301 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d) 
+2018-04-16 16:57:44,313 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d) 
+2018-04-16 16:57:44,359 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:57:44,360 p=3611 u=vagrant |  Monday 16 April 2018  16:57:44 +0200 (0:00:00.108)       0:04:33.651 ********** 
+2018-04-16 16:57:44,434 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php/tasks/configure-opcache.yml for practice_sulu_local
+2018-04-16 16:57:44,503 p=3611 u=vagrant |  TASK [geerlingguy.php : Check for existing OpCache config files.] **************
+2018-04-16 16:57:44,504 p=3611 u=vagrant |  Monday 16 April 2018  16:57:44 +0200 (0:00:00.143)       0:04:33.794 ********** 
+2018-04-16 16:57:44,917 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:45,168 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:45,414 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:45,535 p=3611 u=vagrant |  TASK [geerlingguy.php : Remove any non-role-supplied OpCache config files.] ****
+2018-04-16 16:57:45,536 p=3611 u=vagrant |  Monday 16 April 2018  16:57:45 +0200 (0:00:01.032)       0:04:34.827 ********** 
+2018-04-16 16:57:45,610 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure OpCache config file is present.] ****************
+2018-04-16 16:57:45,611 p=3611 u=vagrant |  Monday 16 April 2018  16:57:45 +0200 (0:00:00.074)       0:04:34.901 ********** 
+2018-04-16 16:57:46,223 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:57:46,758 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:57:47,297 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:57:47,379 p=3611 u=vagrant |  TASK [geerlingguy.php : Remove OpCache config file if OpCache is disabled.] ****
+2018-04-16 16:57:47,379 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:01.768)       0:04:36.670 ********** 
+2018-04-16 16:57:47,419 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d) 
+2018-04-16 16:57:47,428 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d) 
+2018-04-16 16:57:47,441 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d) 
+2018-04-16 16:57:47,486 p=3611 u=vagrant |  TASK [geerlingguy.php : include] ***********************************************
+2018-04-16 16:57:47,487 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:00.107)       0:04:36.777 ********** 
+2018-04-16 16:57:47,576 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php/tasks/configure-fpm.yml for practice_sulu_local
+2018-04-16 16:57:47,658 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_fpm_daemon.] ********************************
+2018-04-16 16:57:47,659 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:00.172)       0:04:36.949 ********** 
+2018-04-16 16:57:47,688 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:47,730 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_fpm_pool_conf_path.] ************************
+2018-04-16 16:57:47,731 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:00.071)       0:04:37.021 ********** 
+2018-04-16 16:57:47,762 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:47,806 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_fpm_pool_user.] *****************************
+2018-04-16 16:57:47,806 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:00.075)       0:04:37.097 ********** 
+2018-04-16 16:57:47,835 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:47,879 p=3611 u=vagrant |  TASK [geerlingguy.php : Define php_fpm_pool_group.] ****************************
+2018-04-16 16:57:47,880 p=3611 u=vagrant |  Monday 16 April 2018  16:57:47 +0200 (0:00:00.073)       0:04:37.170 ********** 
+2018-04-16 16:57:47,959 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:48,002 p=3611 u=vagrant |  TASK [geerlingguy.php : Stat php_fpm_pool_conf_path] ***************************
+2018-04-16 16:57:48,003 p=3611 u=vagrant |  Monday 16 April 2018  16:57:48 +0200 (0:00:00.122)       0:04:37.293 ********** 
+2018-04-16 16:57:48,316 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:48,360 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure the default pool directory exists.] *************
+2018-04-16 16:57:48,361 p=3611 u=vagrant |  Monday 16 April 2018  16:57:48 +0200 (0:00:00.358)       0:04:37.651 ********** 
+2018-04-16 16:57:48,392 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:48,435 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure the default pool exists.] ***********************
+2018-04-16 16:57:48,436 p=3611 u=vagrant |  Monday 16 April 2018  16:57:48 +0200 (0:00:00.074)       0:04:37.726 ********** 
+2018-04-16 16:57:48,902 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:48,943 p=3611 u=vagrant |  TASK [geerlingguy.php : Configure php-fpm pool (if enabled).] ******************
+2018-04-16 16:57:48,944 p=3611 u=vagrant |  Monday 16 April 2018  16:57:48 +0200 (0:00:00.507)       0:04:38.234 ********** 
+2018-04-16 16:57:49,272 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'regexp': u'^user.?=.+$', u'line': u'user = www-data'})
+2018-04-16 16:57:49,515 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'regexp': u'^group.?=.+$', u'line': u'group = www-data'})
+2018-04-16 16:57:49,762 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'regexp': u'^listen.?=.+$', u'line': u'listen = /run/php/php7.1-fpm.sock'})
+2018-04-16 16:57:50,015 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'regexp': u'^listen\\.allowed_clients.?=.+$', u'line': u'listen.allowed_clients = 127.0.0.1'})
+2018-04-16 16:57:50,265 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'regexp': u'^pm\\.max_children.?=.+$', u'line': u'pm.max_children = 50'})
+2018-04-16 16:57:50,517 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'regexp': u'^pm\\.start_servers.?=.+$', u'line': u'pm.start_servers = 5'})
+2018-04-16 16:57:50,768 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'regexp': u'^pm\\.min_spare_servers.?=.+$', u'line': u'pm.min_spare_servers = 5'})
+2018-04-16 16:57:51,021 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'regexp': u'^pm\\.max_spare_servers.?=.+$', u'line': u'pm.max_spare_servers = 5'})
+2018-04-16 16:57:51,208 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure php-fpm is started and enabled at boot (if configured).] ***
+2018-04-16 16:57:51,209 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:02.265)       0:04:40.499 ********** 
+2018-04-16 16:57:51,539 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:51,585 p=3611 u=vagrant |  TASK [geerlingguy.php : Ensure php-fpm is started and enabled at boot (if configured, Debian).] ***
+2018-04-16 16:57:51,586 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:00.376)       0:04:40.876 ********** 
+2018-04-16 16:57:51,616 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:51,664 p=3611 u=vagrant |  TASK [geerlingguy.php-mysql : Include OS-specific variables.] ******************
+2018-04-16 16:57:51,664 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:00.078)       0:04:40.955 ********** 
+2018-04-16 16:57:51,745 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:51,786 p=3611 u=vagrant |  TASK [geerlingguy.php-mysql : Define php_mysql_package.] ***********************
+2018-04-16 16:57:51,787 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:00.122)       0:04:41.077 ********** 
+2018-04-16 16:57:51,821 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:51,866 p=3611 u=vagrant |  TASK [geerlingguy.php-mysql : Install PHP MySQL dependencies (RedHat).] ********
+2018-04-16 16:57:51,867 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:00.080)       0:04:41.157 ********** 
+2018-04-16 16:57:51,898 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:51,939 p=3611 u=vagrant |  TASK [geerlingguy.php-mysql : Install PHP MySQL dependencies (Debian).] ********
+2018-04-16 16:57:51,940 p=3611 u=vagrant |  Monday 16 April 2018  16:57:51 +0200 (0:00:00.072)       0:04:41.230 ********** 
+2018-04-16 16:57:59,063 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:57:59,109 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Include OS-specific variables.] *****************
+2018-04-16 16:57:59,110 p=3611 u=vagrant |  Monday 16 April 2018  16:57:59 +0200 (0:00:07.169)       0:04:48.400 ********** 
+2018-04-16 16:57:59,192 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:59,234 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Define php_xdebug_module_path.] *****************
+2018-04-16 16:57:59,234 p=3611 u=vagrant |  Monday 16 April 2018  16:57:59 +0200 (0:00:00.124)       0:04:48.525 ********** 
+2018-04-16 16:57:59,264 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:57:59,308 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Define php_xdebug_config_filename.] *************
+2018-04-16 16:57:59,308 p=3611 u=vagrant |  Monday 16 April 2018  16:57:59 +0200 (0:00:00.074)       0:04:48.599 ********** 
+2018-04-16 16:57:59,384 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:57:59,428 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Ensure dependencies for building from source are installed (RedHat).] ***
+2018-04-16 16:57:59,429 p=3611 u=vagrant |  Monday 16 April 2018  16:57:59 +0200 (0:00:00.120)       0:04:48.719 ********** 
+2018-04-16 16:57:59,473 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[]) 
+2018-04-16 16:57:59,517 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Ensure dependencies for building from source are installed (Debian).] ***
+2018-04-16 16:57:59,517 p=3611 u=vagrant |  Monday 16 April 2018  16:57:59 +0200 (0:00:00.088)       0:04:48.808 ********** 
+2018-04-16 16:58:00,366 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=[u'build-essential'])
+2018-04-16 16:58:00,407 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Untar Xdebug.] **********************************
+2018-04-16 16:58:00,408 p=3611 u=vagrant |  Monday 16 April 2018  16:58:00 +0200 (0:00:00.890)       0:04:49.698 ********** 
+2018-04-16 16:58:01,865 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:58:01,905 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Build Xdebug.] **********************************
+2018-04-16 16:58:01,906 p=3611 u=vagrant |  Monday 16 April 2018  16:58:01 +0200 (0:00:01.497)       0:04:51.196 ********** 
+2018-04-16 16:58:04,182 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=phpize)
+2018-04-16 16:58:08,854 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=./configure)
+2018-04-16 16:58:28,999 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=make)
+2018-04-16 16:58:29,045 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Ensure Xdebug module path exists.] **************
+2018-04-16 16:58:29,046 p=3611 u=vagrant |  Monday 16 April 2018  16:58:29 +0200 (0:00:27.140)       0:05:18.336 ********** 
+2018-04-16 16:58:29,453 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:58:29,494 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Move Xdebug module into place.] *****************
+2018-04-16 16:58:29,495 p=3611 u=vagrant |  Monday 16 April 2018  16:58:29 +0200 (0:00:00.449)       0:05:18.785 ********** 
+2018-04-16 16:58:29,817 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:58:29,856 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : include_tasks] **********************************
+2018-04-16 16:58:29,857 p=3611 u=vagrant |  Monday 16 April 2018  16:58:29 +0200 (0:00:00.361)       0:05:19.147 ********** 
+2018-04-16 16:58:29,931 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.php-xdebug/tasks/configure.yml for practice_sulu_local
+2018-04-16 16:58:29,980 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Copy xdebug ini into main extension config folder.] ***
+2018-04-16 16:58:29,981 p=3611 u=vagrant |  Monday 16 April 2018  16:58:29 +0200 (0:00:00.124)       0:05:19.271 ********** 
+2018-04-16 16:58:30,628 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/fpm/conf.d)
+2018-04-16 16:58:31,104 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/apache2/conf.d)
+2018-04-16 16:58:31,587 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=/etc/php/7.1/cli/conf.d)
+2018-04-16 16:58:31,718 p=3611 u=vagrant |  TASK [geerlingguy.php-xdebug : Disable xdebug for PHP CLI.] ********************
+2018-04-16 16:58:31,719 p=3611 u=vagrant |  Monday 16 April 2018  16:58:31 +0200 (0:00:01.738)       0:05:21.010 ********** 
+2018-04-16 16:58:31,748 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:31,791 p=3611 u=vagrant |  TASK [geerlingguy.apache : Include OS-specific variables.] *********************
+2018-04-16 16:58:31,792 p=3611 u=vagrant |  Monday 16 April 2018  16:58:31 +0200 (0:00:00.073)       0:05:21.083 ********** 
+2018-04-16 16:58:31,986 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:32,032 p=3611 u=vagrant |  TASK [geerlingguy.apache : Include variables for Amazon Linux.] ****************
+2018-04-16 16:58:32,033 p=3611 u=vagrant |  Monday 16 April 2018  16:58:32 +0200 (0:00:00.240)       0:05:21.323 ********** 
+2018-04-16 16:58:32,063 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:32,107 p=3611 u=vagrant |  TASK [geerlingguy.apache : Define apache_packages.] ****************************
+2018-04-16 16:58:32,107 p=3611 u=vagrant |  Monday 16 April 2018  16:58:32 +0200 (0:00:00.074)       0:05:21.397 ********** 
+2018-04-16 16:58:32,138 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:32,179 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_tasks] **************************************
+2018-04-16 16:58:32,179 p=3611 u=vagrant |  Monday 16 April 2018  16:58:32 +0200 (0:00:00.072)       0:05:21.470 ********** 
+2018-04-16 16:58:32,250 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.apache/tasks/setup-Debian.yml for practice_sulu_local
+2018-04-16 16:58:32,297 p=3611 u=vagrant |  TASK [geerlingguy.apache : Update apt cache.] **********************************
+2018-04-16 16:58:32,298 p=3611 u=vagrant |  Monday 16 April 2018  16:58:32 +0200 (0:00:00.118)       0:05:21.588 ********** 
+2018-04-16 16:58:33,219 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:33,343 p=3611 u=vagrant |  TASK [geerlingguy.apache : Ensure Apache is installed on Debian.] **************
+2018-04-16 16:58:33,344 p=3611 u=vagrant |  Monday 16 April 2018  16:58:33 +0200 (0:00:01.046)       0:05:22.635 ********** 
+2018-04-16 16:58:34,182 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=[u'apache2', u'apache2-utils'])
+2018-04-16 16:58:34,224 p=3611 u=vagrant |  TASK [geerlingguy.apache : Get installed version of Apache.] *******************
+2018-04-16 16:58:34,225 p=3611 u=vagrant |  Monday 16 April 2018  16:58:34 +0200 (0:00:00.880)       0:05:23.515 ********** 
+2018-04-16 16:58:34,567 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:34,609 p=3611 u=vagrant |  TASK [geerlingguy.apache : Create apache_version variable.] ********************
+2018-04-16 16:58:34,609 p=3611 u=vagrant |  Monday 16 April 2018  16:58:34 +0200 (0:00:00.384)       0:05:23.900 ********** 
+2018-04-16 16:58:34,685 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:34,726 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_vars] ***************************************
+2018-04-16 16:58:34,727 p=3611 u=vagrant |  Monday 16 April 2018  16:58:34 +0200 (0:00:00.117)       0:05:24.017 ********** 
+2018-04-16 16:58:34,764 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:34,804 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_vars] ***************************************
+2018-04-16 16:58:34,805 p=3611 u=vagrant |  Monday 16 April 2018  16:58:34 +0200 (0:00:00.078)       0:05:24.095 ********** 
+2018-04-16 16:58:34,891 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:34,935 p=3611 u=vagrant |  TASK [geerlingguy.apache : include_tasks] **************************************
+2018-04-16 16:58:34,936 p=3611 u=vagrant |  Monday 16 April 2018  16:58:34 +0200 (0:00:00.130)       0:05:24.226 ********** 
+2018-04-16 16:58:35,015 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.apache/tasks/configure-Debian.yml for practice_sulu_local
+2018-04-16 16:58:35,064 p=3611 u=vagrant |  TASK [geerlingguy.apache : Configure Apache.] **********************************
+2018-04-16 16:58:35,065 p=3611 u=vagrant |  Monday 16 April 2018  16:58:35 +0200 (0:00:00.129)       0:05:24.355 ********** 
+2018-04-16 16:58:35,384 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'regexp': u'^Listen ', u'line': u'Listen 80'})
+2018-04-16 16:58:35,427 p=3611 u=vagrant |  TASK [geerlingguy.apache : Enable Apache mods.] ********************************
+2018-04-16 16:58:35,428 p=3611 u=vagrant |  Monday 16 April 2018  16:58:35 +0200 (0:00:00.362)       0:05:24.718 ********** 
+2018-04-16 16:58:35,742 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=rewrite.load)
+2018-04-16 16:58:35,986 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=ssl.load)
+2018-04-16 16:58:36,030 p=3611 u=vagrant |  TASK [geerlingguy.apache : Disable Apache mods.] *******************************
+2018-04-16 16:58:36,031 p=3611 u=vagrant |  Monday 16 April 2018  16:58:36 +0200 (0:00:00.603)       0:05:25.321 ********** 
+2018-04-16 16:58:36,104 p=3611 u=vagrant |  TASK [geerlingguy.apache : Check whether certificates defined in vhosts exist.] ***
+2018-04-16 16:58:36,105 p=3611 u=vagrant |  Monday 16 April 2018  16:58:36 +0200 (0:00:00.074)       0:05:25.395 ********** 
+2018-04-16 16:58:36,176 p=3611 u=vagrant |  TASK [geerlingguy.apache : Add apache vhosts configuration.] *******************
+2018-04-16 16:58:36,176 p=3611 u=vagrant |  Monday 16 April 2018  16:58:36 +0200 (0:00:00.071)       0:05:25.467 ********** 
+2018-04-16 16:58:36,785 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:36,826 p=3611 u=vagrant |  TASK [geerlingguy.apache : Add vhost symlink in sites-enabled.] ****************
+2018-04-16 16:58:36,827 p=3611 u=vagrant |  Monday 16 April 2018  16:58:36 +0200 (0:00:00.650)       0:05:26.117 ********** 
+2018-04-16 16:58:37,134 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:37,179 p=3611 u=vagrant |  TASK [geerlingguy.apache : Remove default vhost in sites-enabled.] *************
+2018-04-16 16:58:37,180 p=3611 u=vagrant |  Monday 16 April 2018  16:58:37 +0200 (0:00:00.352)       0:05:26.470 ********** 
+2018-04-16 16:58:37,483 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:37,524 p=3611 u=vagrant |  TASK [geerlingguy.apache : Ensure Apache has selected state and enabled on boot.] ***
+2018-04-16 16:58:37,525 p=3611 u=vagrant |  Monday 16 April 2018  16:58:37 +0200 (0:00:00.344)       0:05:26.815 ********** 
+2018-04-16 16:58:37,863 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:37,903 p=3611 u=vagrant |  TASK [geerlingguy.apache-php-fpm : Enable mod_proxy_fcgi.] *********************
+2018-04-16 16:58:37,904 p=3611 u=vagrant |  Monday 16 April 2018  16:58:37 +0200 (0:00:00.379)       0:05:27.194 ********** 
+2018-04-16 16:58:38,235 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=proxy.load)
+2018-04-16 16:58:38,493 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=proxy_fcgi.load)
+2018-04-16 16:58:38,557 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Include OS-specific variables.] **********************
+2018-04-16 16:58:38,557 p=3611 u=vagrant |  Monday 16 April 2018  16:58:38 +0200 (0:00:00.653)       0:05:27.848 ********** 
+2018-04-16 16:58:38,666 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=/vagrant/ansible/roles-galaxy/geerlingguy.mysql/vars/Debian.yml)
+2018-04-16 16:58:38,713 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Include OS-specific variables (RedHat).] *************
+2018-04-16 16:58:38,714 p=3611 u=vagrant |  Monday 16 April 2018  16:58:38 +0200 (0:00:00.156)       0:05:28.004 ********** 
+2018-04-16 16:58:38,746 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:38,789 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_packages.] ******************************
+2018-04-16 16:58:38,790 p=3611 u=vagrant |  Monday 16 April 2018  16:58:38 +0200 (0:00:00.076)       0:05:28.080 ********** 
+2018-04-16 16:58:38,819 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:38,863 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_daemon.] ********************************
+2018-04-16 16:58:38,864 p=3611 u=vagrant |  Monday 16 April 2018  16:58:38 +0200 (0:00:00.073)       0:05:28.154 ********** 
+2018-04-16 16:58:38,948 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:38,990 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_slow_query_log_file.] *******************
+2018-04-16 16:58:38,991 p=3611 u=vagrant |  Monday 16 April 2018  16:58:38 +0200 (0:00:00.126)       0:05:28.281 ********** 
+2018-04-16 16:58:39,077 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,119 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_log_error.] *****************************
+2018-04-16 16:58:39,119 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.128)       0:05:28.410 ********** 
+2018-04-16 16:58:39,205 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,249 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_syslog_tag.] ****************************
+2018-04-16 16:58:39,250 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.130)       0:05:28.540 ********** 
+2018-04-16 16:58:39,330 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,372 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_pid_file.] ******************************
+2018-04-16 16:58:39,373 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.122)       0:05:28.663 ********** 
+2018-04-16 16:58:39,451 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,492 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_config_file.] ***************************
+2018-04-16 16:58:39,492 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.119)       0:05:28.783 ********** 
+2018-04-16 16:58:39,577 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,617 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_config_include_dir.] ********************
+2018-04-16 16:58:39,618 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.125)       0:05:28.908 ********** 
+2018-04-16 16:58:39,701 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,742 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_socket.] ********************************
+2018-04-16 16:58:39,743 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.124)       0:05:29.033 ********** 
+2018-04-16 16:58:39,828 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,869 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Define mysql_supports_innodb_large_prefix.] **********
+2018-04-16 16:58:39,870 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.126)       0:05:29.160 ********** 
+2018-04-16 16:58:39,953 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:39,998 p=3611 u=vagrant |  TASK [geerlingguy.mysql : include] *********************************************
+2018-04-16 16:58:39,999 p=3611 u=vagrant |  Monday 16 April 2018  16:58:39 +0200 (0:00:00.128)       0:05:29.289 ********** 
+2018-04-16 16:58:40,031 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:58:40,074 p=3611 u=vagrant |  TASK [geerlingguy.mysql : include] *********************************************
+2018-04-16 16:58:40,075 p=3611 u=vagrant |  Monday 16 April 2018  16:58:40 +0200 (0:00:00.076)       0:05:29.365 ********** 
+2018-04-16 16:58:40,159 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/geerlingguy.mysql/tasks/setup-Debian.yml for practice_sulu_local
+2018-04-16 16:58:40,241 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Check if MySQL is already installed.] ****************
+2018-04-16 16:58:40,242 p=3611 u=vagrant |  Monday 16 April 2018  16:58:40 +0200 (0:00:00.166)       0:05:29.532 ********** 
+2018-04-16 16:58:40,539 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:58:40,580 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Update apt cache if MySQL is not yet installed.] *****
+2018-04-16 16:58:40,580 p=3611 u=vagrant |  Monday 16 April 2018  16:58:40 +0200 (0:00:00.338)       0:05:29.871 ********** 
+2018-04-16 16:58:43,154 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:58:43,196 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL Python libraries are installed.] ********
+2018-04-16 16:58:43,197 p=3611 u=vagrant |  Monday 16 April 2018  16:58:43 +0200 (0:00:02.616)       0:05:32.487 ********** 
+2018-04-16 16:58:48,058 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:58:48,098 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL packages are installed.] ****************
+2018-04-16 16:58:48,099 p=3611 u=vagrant |  Monday 16 April 2018  16:58:48 +0200 (0:00:04.902)       0:05:37.389 ********** 
+2018-04-16 16:59:25,398 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=[u'mysql-server', u'mysql-client'])
+2018-04-16 16:59:25,460 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL is stopped after initial install.] ******
+2018-04-16 16:59:25,460 p=3611 u=vagrant |  Monday 16 April 2018  16:59:25 +0200 (0:00:37.361)       0:06:14.751 ********** 
+2018-04-16 16:59:27,067 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:27,110 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Delete innodb log files created by apt package after initial install.] ***
+2018-04-16 16:59:27,110 p=3611 u=vagrant |  Monday 16 April 2018  16:59:27 +0200 (0:00:01.649)       0:06:16.401 ********** 
+2018-04-16 16:59:27,550 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=ib_logfile0)
+2018-04-16 16:59:27,813 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=ib_logfile1)
+2018-04-16 16:59:27,856 p=3611 u=vagrant |  TASK [geerlingguy.mysql : include] *********************************************
+2018-04-16 16:59:27,857 p=3611 u=vagrant |  Monday 16 April 2018  16:59:27 +0200 (0:00:00.746)       0:06:17.147 ********** 
+2018-04-16 16:59:27,887 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:27,931 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Check if MySQL packages were installed.] *************
+2018-04-16 16:59:27,932 p=3611 u=vagrant |  Monday 16 April 2018  16:59:27 +0200 (0:00:00.075)       0:06:17.222 ********** 
+2018-04-16 16:59:28,008 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:59:28,053 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Copy my.cnf global MySQL configuration.] *************
+2018-04-16 16:59:28,053 p=3611 u=vagrant |  Monday 16 April 2018  16:59:28 +0200 (0:00:00.121)       0:06:17.344 ********** 
+2018-04-16 16:59:28,939 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:28,980 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Verify mysql include directory exists.] **************
+2018-04-16 16:59:28,980 p=3611 u=vagrant |  Monday 16 April 2018  16:59:28 +0200 (0:00:00.926)       0:06:18.271 ********** 
+2018-04-16 16:59:29,013 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:29,056 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Copy my.cnf override files into include directory.] ***
+2018-04-16 16:59:29,056 p=3611 u=vagrant |  Monday 16 April 2018  16:59:29 +0200 (0:00:00.075)       0:06:18.346 ********** 
+2018-04-16 16:59:29,131 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Create slow query log file (if configured).] *********
+2018-04-16 16:59:29,132 p=3611 u=vagrant |  Monday 16 April 2018  16:59:29 +0200 (0:00:00.075)       0:06:18.422 ********** 
+2018-04-16 16:59:29,161 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:29,205 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Create datadir if it does not exist] *****************
+2018-04-16 16:59:29,206 p=3611 u=vagrant |  Monday 16 April 2018  16:59:29 +0200 (0:00:00.074)       0:06:18.496 ********** 
+2018-04-16 16:59:29,519 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:29,561 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Set ownership on slow query log file (if configured).] ***
+2018-04-16 16:59:29,562 p=3611 u=vagrant |  Monday 16 April 2018  16:59:29 +0200 (0:00:00.355)       0:06:18.852 ********** 
+2018-04-16 16:59:29,588 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:29,632 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Create error log file (if configured).] **************
+2018-04-16 16:59:29,633 p=3611 u=vagrant |  Monday 16 April 2018  16:59:29 +0200 (0:00:00.071)       0:06:18.923 ********** 
+2018-04-16 16:59:30,063 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:30,105 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Set ownership on error log file (if configured).] ****
+2018-04-16 16:59:30,106 p=3611 u=vagrant |  Monday 16 April 2018  16:59:30 +0200 (0:00:00.472)       0:06:19.396 ********** 
+2018-04-16 16:59:30,532 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:30,577 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL is started and enabled on boot.] ********
+2018-04-16 16:59:30,578 p=3611 u=vagrant |  Monday 16 April 2018  16:59:30 +0200 (0:00:00.472)       0:06:19.868 ********** 
+2018-04-16 16:59:31,997 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:32,046 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Get MySQL version.] **********************************
+2018-04-16 16:59:32,047 p=3611 u=vagrant |  Monday 16 April 2018  16:59:32 +0200 (0:00:01.468)       0:06:21.337 ********** 
+2018-04-16 16:59:32,505 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:59:32,638 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure default user is present.] *********************
+2018-04-16 16:59:32,639 p=3611 u=vagrant |  Monday 16 April 2018  16:59:32 +0200 (0:00:00.591)       0:06:21.929 ********** 
+2018-04-16 16:59:32,673 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:32,716 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Copy user-my.cnf file with password credentials.] ****
+2018-04-16 16:59:32,717 p=3611 u=vagrant |  Monday 16 April 2018  16:59:32 +0200 (0:00:00.078)       0:06:22.007 ********** 
+2018-04-16 16:59:32,751 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:32,795 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Disallow root login remotely] ************************
+2018-04-16 16:59:32,795 p=3611 u=vagrant |  Monday 16 April 2018  16:59:32 +0200 (0:00:00.078)       0:06:22.086 ********** 
+2018-04-16 16:59:33,137 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item=DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1'))
+2018-04-16 16:59:33,187 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Get list of hosts for the root user.] ****************
+2018-04-16 16:59:33,188 p=3611 u=vagrant |  Monday 16 April 2018  16:59:33 +0200 (0:00:00.392)       0:06:22.478 ********** 
+2018-04-16 16:59:33,510 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:59:33,553 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Update MySQL root password for localhost root account (5.7.x).] ***
+2018-04-16 16:59:33,554 p=3611 u=vagrant |  Monday 16 April 2018  16:59:33 +0200 (0:00:00.365)       0:06:22.844 ********** 
+2018-04-16 16:59:33,909 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=localhost)
+2018-04-16 16:59:33,953 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Update MySQL root password for localhost root account (< 5.7.x).] ***
+2018-04-16 16:59:33,954 p=3611 u=vagrant |  Monday 16 April 2018  16:59:33 +0200 (0:00:00.400)       0:06:23.244 ********** 
+2018-04-16 16:59:34,006 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=localhost) 
+2018-04-16 16:59:34,049 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Copy .my.cnf file with root password credentials.] ***
+2018-04-16 16:59:34,050 p=3611 u=vagrant |  Monday 16 April 2018  16:59:34 +0200 (0:00:00.095)       0:06:23.340 ********** 
+2018-04-16 16:59:34,753 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:34,795 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Get list of hosts for the anonymous user.] ***********
+2018-04-16 16:59:34,796 p=3611 u=vagrant |  Monday 16 April 2018  16:59:34 +0200 (0:00:00.746)       0:06:24.086 ********** 
+2018-04-16 16:59:35,120 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:59:35,167 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Remove anonymous MySQL users.] ***********************
+2018-04-16 16:59:35,167 p=3611 u=vagrant |  Monday 16 April 2018  16:59:35 +0200 (0:00:00.371)       0:06:24.458 ********** 
+2018-04-16 16:59:35,241 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Remove MySQL test database.] *************************
+2018-04-16 16:59:35,242 p=3611 u=vagrant |  Monday 16 April 2018  16:59:35 +0200 (0:00:00.074)       0:06:24.532 ********** 
+2018-04-16 16:59:35,848 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 16:59:35,889 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL databases are present.] *****************
+2018-04-16 16:59:35,890 p=3611 u=vagrant |  Monday 16 April 2018  16:59:35 +0200 (0:00:00.648)       0:06:25.181 ********** 
+2018-04-16 16:59:36,253 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'collation': u'latin1_general_ci', u'name': u'sulu', u'encoding': u'latin1'})
+2018-04-16 16:59:36,298 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure MySQL users are present.] *********************
+2018-04-16 16:59:36,299 p=3611 u=vagrant |  Monday 16 April 2018  16:59:36 +0200 (0:00:00.408)       0:06:25.589 ********** 
+2018-04-16 16:59:36,940 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=None)
+2018-04-16 16:59:36,985 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Ensure replication user exists on master.] ***********
+2018-04-16 16:59:36,986 p=3611 u=vagrant |  Monday 16 April 2018  16:59:36 +0200 (0:00:00.687)       0:06:26.276 ********** 
+2018-04-16 16:59:37,025 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,071 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Check slave replication status.] *********************
+2018-04-16 16:59:37,072 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.085)       0:06:26.362 ********** 
+2018-04-16 16:59:37,105 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,163 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Check master replication status.] ********************
+2018-04-16 16:59:37,163 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.091)       0:06:26.454 ********** 
+2018-04-16 16:59:37,203 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,244 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Configure replication on the slave.] *****************
+2018-04-16 16:59:37,245 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.081)       0:06:26.535 ********** 
+2018-04-16 16:59:37,284 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,326 p=3611 u=vagrant |  TASK [geerlingguy.mysql : Start replication.] **********************************
+2018-04-16 16:59:37,326 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.081)       0:06:26.617 ********** 
+2018-04-16 16:59:37,363 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,413 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Add packagecloud GPG key.] ***********************
+2018-04-16 16:59:37,413 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.086)       0:06:26.704 ********** 
+2018-04-16 16:59:37,445 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,486 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Add Blackfire repository.] ***********************
+2018-04-16 16:59:37,487 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.073)       0:06:26.778 ********** 
+2018-04-16 16:59:37,525 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,573 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Disable gpg_repocheck for non-bleeding-edge CentOS.] ***
+2018-04-16 16:59:37,573 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.086)       0:06:26.864 ********** 
+2018-04-16 16:59:37,605 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 16:59:37,647 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Add packagecloud apt key.] ***********************
+2018-04-16 16:59:37,647 p=3611 u=vagrant |  Monday 16 April 2018  16:59:37 +0200 (0:00:00.073)       0:06:26.938 ********** 
+2018-04-16 16:59:40,446 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:40,486 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Add packagecloud repository.] ********************
+2018-04-16 16:59:40,487 p=3611 u=vagrant |  Monday 16 April 2018  16:59:40 +0200 (0:00:02.839)       0:06:29.778 ********** 
+2018-04-16 16:59:51,713 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=deb http://packages.blackfire.io/debian any main)
+2018-04-16 16:59:51,763 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Update apt caches after repo is added.] **********
+2018-04-16 16:59:51,764 p=3611 u=vagrant |  Monday 16 April 2018  16:59:51 +0200 (0:00:11.276)       0:06:41.054 ********** 
+2018-04-16 16:59:54,478 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 16:59:54,519 p=3611 u=vagrant |  TASK [geerlingguy.blackfire : Ensure Blackfire packages are installed.] ********
+2018-04-16 16:59:54,519 p=3611 u=vagrant |  Monday 16 April 2018  16:59:54 +0200 (0:00:02.755)       0:06:43.810 ********** 
+2018-04-16 17:00:03,701 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:03,743 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : set doc_root file permissions after installing lamp] ***
+2018-04-16 17:00:03,743 p=3611 u=vagrant |  Monday 16 April 2018  17:00:03 +0200 (0:00:09.223)       0:06:53.034 ********** 
+2018-04-16 17:00:03,829 p=3611 u=vagrant |  included: /vagrant/ansible/roles-galaxy/fourforbusiness.dev-lamp/tasks/prepare_file_system.yml for practice_sulu_local
+2018-04-16 17:00:03,875 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Update apt cache] *****************************
+2018-04-16 17:00:03,875 p=3611 u=vagrant |  Monday 16 April 2018  17:00:03 +0200 (0:00:00.131)       0:06:53.166 ********** 
+2018-04-16 17:00:04,702 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 17:00:04,746 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Ensure sefacl and facl binaries are installed (Debian)] ***
+2018-04-16 17:00:04,747 p=3611 u=vagrant |  Monday 16 April 2018  17:00:04 +0200 (0:00:00.871)       0:06:54.037 ********** 
+2018-04-16 17:00:05,587 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 17:00:05,628 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Ensure www-directory exists and has correct access-rights] ***
+2018-04-16 17:00:05,628 p=3611 u=vagrant |  Monday 16 April 2018  17:00:05 +0200 (0:00:00.881)       0:06:54.919 ********** 
+2018-04-16 17:00:05,675 p=3611 u=vagrant |   [WARNING]: when statements should not include jinja2 templating delimiters
+such as {{ }} or {% %}. Found: {{ apache_vhosts | length > 0 }}
+
+2018-04-16 17:00:05,992 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item={u'extra_parameters': u'ProxyPassMatch ^/(.*\\.php(/.*)?)$ "unix:/run/php/php7.1-fpm.sock|fcgi://localhost/var/www/vhosts/sulu/web"', u'servername': u'practice.sulu.local', u'srveradmin': u'admin@localhost', u'documentroot': u'/var/www/vhosts/sulu/web'})
+2018-04-16 17:00:06,035 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Set documentroots current ACLs] ***************
+2018-04-16 17:00:06,036 p=3611 u=vagrant |  Monday 16 April 2018  17:00:06 +0200 (0:00:00.407)       0:06:55.326 ********** 
+2018-04-16 17:00:06,754 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=None)
+2018-04-16 17:00:06,797 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Set documentroots current ACLs] ***************
+2018-04-16 17:00:06,797 p=3611 u=vagrant |  Monday 16 April 2018  17:00:06 +0200 (0:00:00.761)       0:06:56.088 ********** 
+2018-04-16 17:00:07,130 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=None)
+2018-04-16 17:00:07,175 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Set documentroots default ACLs] ***************
+2018-04-16 17:00:07,176 p=3611 u=vagrant |  Monday 16 April 2018  17:00:07 +0200 (0:00:00.378)       0:06:56.466 ********** 
+2018-04-16 17:00:07,521 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=None)
+2018-04-16 17:00:07,564 p=3611 u=vagrant |  TASK [fourforbusiness.dev-lamp : Set documentroots default ACLs] ***************
+2018-04-16 17:00:07,565 p=3611 u=vagrant |  Monday 16 April 2018  17:00:07 +0200 (0:00:00.388)       0:06:56.855 ********** 
+2018-04-16 17:00:07,897 p=3611 u=vagrant |  changed: [practice_sulu_local] => (item=None)
+2018-04-16 17:00:07,941 p=3611 u=vagrant |  TASK [geerlingguy.composer : Set php_executable variable to a default if not defined.] ***
+2018-04-16 17:00:07,941 p=3611 u=vagrant |  Monday 16 April 2018  17:00:07 +0200 (0:00:00.376)       0:06:57.231 ********** 
+2018-04-16 17:00:07,975 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 17:00:08,020 p=3611 u=vagrant |  TASK [geerlingguy.composer : Check if Composer is installed.] ******************
+2018-04-16 17:00:08,021 p=3611 u=vagrant |  Monday 16 April 2018  17:00:08 +0200 (0:00:00.079)       0:06:57.311 ********** 
+2018-04-16 17:00:08,321 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 17:00:08,362 p=3611 u=vagrant |  TASK [geerlingguy.composer : Download Composer installer.] *********************
+2018-04-16 17:00:08,363 p=3611 u=vagrant |  Monday 16 April 2018  17:00:08 +0200 (0:00:00.341)       0:06:57.653 ********** 
+2018-04-16 17:00:09,532 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:09,573 p=3611 u=vagrant |  TASK [geerlingguy.composer : Run Composer installer.] **************************
+2018-04-16 17:00:09,573 p=3611 u=vagrant |  Monday 16 April 2018  17:00:09 +0200 (0:00:01.210)       0:06:58.864 ********** 
+2018-04-16 17:00:10,368 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:10,418 p=3611 u=vagrant |  TASK [geerlingguy.composer : Move Composer into globally-accessible location.] ***
+2018-04-16 17:00:10,419 p=3611 u=vagrant |  Monday 16 April 2018  17:00:10 +0200 (0:00:00.845)       0:06:59.709 ********** 
+2018-04-16 17:00:10,813 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:10,857 p=3611 u=vagrant |  TASK [geerlingguy.composer : Update Composer to latest version (if configured).] ***
+2018-04-16 17:00:10,858 p=3611 u=vagrant |  Monday 16 April 2018  17:00:10 +0200 (0:00:00.439)       0:07:00.148 ********** 
+2018-04-16 17:00:10,883 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 17:00:10,932 p=3611 u=vagrant |  TASK [geerlingguy.composer : Ensure composer directory exists.] ****************
+2018-04-16 17:00:10,933 p=3611 u=vagrant |  Monday 16 April 2018  17:00:10 +0200 (0:00:00.075)       0:07:00.223 ********** 
+2018-04-16 17:00:11,244 p=3611 u=vagrant |  ok: [practice_sulu_local]
+2018-04-16 17:00:11,285 p=3611 u=vagrant |  TASK [geerlingguy.composer : Add GitHub OAuth token for Composer (if configured).] ***
+2018-04-16 17:00:11,286 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.352)       0:07:00.576 ********** 
+2018-04-16 17:00:11,319 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 17:00:11,364 p=3611 u=vagrant |  TASK [geerlingguy.composer : Install configured globally-required packages.] ***
+2018-04-16 17:00:11,365 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.078)       0:07:00.655 ********** 
+2018-04-16 17:00:11,439 p=3611 u=vagrant |  TASK [geerlingguy.composer : Add composer_home_path bin directory to global $PATH.] ***
+2018-04-16 17:00:11,439 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.074)       0:07:00.730 ********** 
+2018-04-16 17:00:11,471 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 17:00:11,517 p=3611 u=vagrant |  TASK [geerlingguy.composer : Add composer_project_path bin directory to global $PATH.] ***
+2018-04-16 17:00:11,517 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.078)       0:07:00.808 ********** 
+2018-04-16 17:00:11,542 p=3611 u=vagrant |  skipping: [practice_sulu_local]
+2018-04-16 17:00:11,604 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : get file stat of local sql-dump file to be able to perform a check in the following task] ***
+2018-04-16 17:00:11,605 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.087)       0:07:00.895 ********** 
+2018-04-16 17:00:11,933 p=3611 u=vagrant |  ok: [practice_sulu_local] => (item={u'database': u'sulu', u'filename': u'sql_dump.sql'})
+2018-04-16 17:00:11,976 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : Copy database dump file] **************
+2018-04-16 17:00:11,977 p=3611 u=vagrant |  Monday 16 April 2018  17:00:11 +0200 (0:00:00.371)       0:07:01.267 ********** 
+2018-04-16 17:00:12,037 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[{u'filename': u'sql_dump.sql', u'database': u'sulu'}, {'_ansible_parsed': True, u'stat': {u'exists': False}, '_ansible_item_result': True, '_ansible_no_log': False, 'failed': False, u'changed': False, 'item': {u'database': u'sulu', u'filename': u'sql_dump.sql'}, u'invocation': {u'module_args': {u'checksum_algorithm': u'sha1', u'get_checksum': True, u'follow': False, u'path': u'dumps/sql_dump.sql', u'get_md5': None, u'get_mime': True, u'get_attributes': True}}, '_ansible_ignore_errors': None}]) 
+2018-04-16 17:00:12,085 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : get file stat of remote sql-dump file to be able to perform a check in the following task] ***
+2018-04-16 17:00:12,086 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.108)       0:07:01.376 ********** 
+2018-04-16 17:00:12,139 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item={u'database': u'sulu', u'filename': u'sql_dump.sql'}) 
+2018-04-16 17:00:12,189 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : replace specific parts of the sql-dump] ***
+2018-04-16 17:00:12,190 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.103)       0:07:01.480 ********** 
+2018-04-16 17:00:12,265 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : Restore database] *********************
+2018-04-16 17:00:12,265 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.075)       0:07:01.556 ********** 
+2018-04-16 17:00:12,324 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[{u'filename': u'sql_dump.sql', u'database': u'sulu'}, {'skipped': True, '_ansible_no_log': False, 'skip_reason': u'Conditional result was False', '_ansible_item_result': True, 'item': {u'database': u'sulu', u'filename': u'sql_dump.sql'}, 'changed': False, '_ansible_ignore_errors': None}]) 
+2018-04-16 17:00:12,367 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : get file stat of local files] *********
+2018-04-16 17:00:12,367 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.101)       0:07:01.658 ********** 
+2018-04-16 17:00:12,421 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item={u'database': u'sulu', u'filename': u'reset_host_ssl.sql'}) 
+2018-04-16 17:00:12,464 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : copy additional sql-scripts] **********
+2018-04-16 17:00:12,465 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.097)       0:07:01.755 ********** 
+2018-04-16 17:00:12,522 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[{u'filename': u'reset_host_ssl.sql', u'database': u'sulu'}, {'skipped': True, '_ansible_no_log': False, 'skip_reason': u'Conditional result was False', '_ansible_item_result': True, 'item': {u'database': u'sulu', u'filename': u'reset_host_ssl.sql'}, 'changed': False, '_ansible_ignore_errors': None}]) 
+2018-04-16 17:00:12,566 p=3611 u=vagrant |  TASK [fourforbusiness.mysql-prepare-db : execute additional sql-scripts] *******
+2018-04-16 17:00:12,567 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.101)       0:07:01.857 ********** 
+2018-04-16 17:00:12,613 p=3611 u=vagrant |  skipping: [practice_sulu_local] => (item=[{u'filename': u'reset_host_ssl.sql', u'database': u'sulu'}, {'skipped': True, '_ansible_no_log': False, 'skip_reason': u'Conditional result was False', '_ansible_item_result': True, 'item': {u'database': u'sulu', u'filename': u'reset_host_ssl.sql'}, 'changed': False, '_ansible_ignore_errors': None}]) 
+2018-04-16 17:00:12,617 p=3611 u=vagrant |  RUNNING HANDLER [geerlingguy.apache : restart apache] **************************
+2018-04-16 17:00:12,618 p=3611 u=vagrant |  Monday 16 April 2018  17:00:12 +0200 (0:00:00.050)       0:07:01.908 ********** 
+2018-04-16 17:00:15,486 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:15,489 p=3611 u=vagrant |  RUNNING HANDLER [geerlingguy.php : restart webserver] **************************
+2018-04-16 17:00:15,489 p=3611 u=vagrant |  Monday 16 April 2018  17:00:15 +0200 (0:00:02.871)       0:07:04.780 ********** 
+2018-04-16 17:00:18,211 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:18,213 p=3611 u=vagrant |  RUNNING HANDLER [geerlingguy.php : restart php-fpm] ****************************
+2018-04-16 17:00:18,214 p=3611 u=vagrant |  Monday 16 April 2018  17:00:18 +0200 (0:00:02.724)       0:07:07.504 ********** 
+2018-04-16 17:00:18,730 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:18,732 p=3611 u=vagrant |  RUNNING HANDLER [geerlingguy.mysql : restart mysql] ****************************
+2018-04-16 17:00:18,733 p=3611 u=vagrant |  Monday 16 April 2018  17:00:18 +0200 (0:00:00.518)       0:07:08.023 ********** 
+2018-04-16 17:00:18,840 p=3611 u=vagrant |   [WARNING]: Ignoring "sleep" as it is not used in "systemd"
+
+2018-04-16 17:00:21,832 p=3611 u=vagrant |  changed: [practice_sulu_local]
+2018-04-16 17:00:21,836 p=3611 u=vagrant |  PLAY RECAP *********************************************************************
+2018-04-16 17:00:21,837 p=3611 u=vagrant |  practice_sulu_local        : ok=153  changed=65   unreachable=0    failed=0   
+2018-04-16 17:00:21,837 p=3611 u=vagrant |  Monday 16 April 2018  17:00:21 +0200 (0:00:03.104)       0:07:11.128 ********** 
+2018-04-16 17:00:21,838 p=3611 u=vagrant |  =============================================================================== 
+2018-04-16 17:00:21,840 p=3611 u=vagrant |  geerlingguy.php : Ensure PHP packages are installed. ------------------- 95.83s
+2018-04-16 17:00:21,841 p=3611 u=vagrant |  geerlingguy.apache : Ensure Apache is installed on Debian. ------------- 43.78s
+2018-04-16 17:00:21,841 p=3611 u=vagrant |  geerlingguy.mysql : Ensure MySQL packages are installed. --------------- 37.36s
+2018-04-16 17:00:21,841 p=3611 u=vagrant |  geerlingguy.nodejs : Ensure npm global packages are installed. --------- 29.66s
+2018-04-16 17:00:21,842 p=3611 u=vagrant |  geerlingguy.php-xdebug : Build Xdebug. --------------------------------- 27.14s
+2018-04-16 17:00:21,842 p=3611 u=vagrant |  geerlingguy.nodejs : Add NodeSource repositories for Node.js. ---------- 16.63s
+2018-04-16 17:00:21,843 p=3611 u=vagrant |  fourforbusiness.oh-my-zsh : add git-ppa-repository (debian) ------------ 11.61s
+2018-04-16 17:00:21,843 p=3611 u=vagrant |  geerlingguy.blackfire : Add packagecloud repository. ------------------- 11.28s
+2018-04-16 17:00:21,844 p=3611 u=vagrant |  geerlingguy.php-versions : Add repository for PHP versions (Ubuntu). --- 10.25s
+2018-04-16 17:00:21,845 p=3611 u=vagrant |  geerlingguy.blackfire : Ensure Blackfire packages are installed. -------- 9.22s
+2018-04-16 17:00:21,845 p=3611 u=vagrant |  geerlingguy.nodejs : Ensure Node.js and npm are installed. -------------- 8.79s
+2018-04-16 17:00:21,846 p=3611 u=vagrant |  geerlingguy.php-mysql : Install PHP MySQL dependencies (Debian). -------- 7.17s
+2018-04-16 17:00:21,846 p=3611 u=vagrant |  fourforbusiness.oh-my-zsh : install dependencies ------------------------ 6.73s
+2018-04-16 17:00:21,846 p=3611 u=vagrant |  fourforbusiness.basic-setup : Generate locales -------------------------- 5.85s
+2018-04-16 17:00:21,847 p=3611 u=vagrant |  fourforbusiness.basic-setup : Ensure locales is installed --------------- 5.13s
+2018-04-16 17:00:21,847 p=3611 u=vagrant |  geerlingguy.mysql : Ensure MySQL Python libraries are installed. -------- 4.90s
+2018-04-16 17:00:21,848 p=3611 u=vagrant |  geerlingguy.mysql : restart mysql --------------------------------------- 3.11s
+2018-04-16 17:00:21,848 p=3611 u=vagrant |  geerlingguy.apache : restart apache ------------------------------------- 2.87s
+2018-04-16 17:00:21,848 p=3611 u=vagrant |  geerlingguy.blackfire : Add packagecloud apt key. ----------------------- 2.84s
+2018-04-16 17:00:21,849 p=3611 u=vagrant |  geerlingguy.blackfire : Update apt caches after repo is added. ---------- 2.76s
