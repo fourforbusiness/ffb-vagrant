@@ -4,16 +4,22 @@
 #
 # This file is the entrypoint that loads more ruby-code to execute the vagrant configuration
 
-# include required ruby libs
 require 'net/http'
 require 'optparse'
-# if the tools are already downloaded/existing locally, we load them for logging output
-ffb_tools_exist     = File.file?(ffb_tools_path)
-if ffb_tools_exist
+
+current_working_dir = File.dirname(File.expand_path(__FILE__))
+vagrant_ffb_dirname = ".ffb"
+vagrant_ffb_path = "#{current_working_dir}/#{vagrant_ffb_dirname}"
+ffb_tools_filename = "ffb.tools.rb"
+ffb_tools_path = "#{current_working_dir}/#{ffb_tools_filename}"
+if File.file?(ffb_tools_path)
   require_relative ffb_tools_path
 end
 
-# enum list of possible/known environments for vagrant
+vagrant_ffb_path = "#{current_working_dir}"
+vagrant_main_script_filename = "ffb.vagrant.rb"
+vagrant_environment = "prod"
+
 module VAGRANT_ENVIRONMENT
   # production is the default env, it loads files from the prod-branch on github
   PRODUCTION  = "prod"
