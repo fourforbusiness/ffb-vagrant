@@ -161,6 +161,12 @@ class FfbVagrant
             end
             box.vm.network "#{nic_type}", ip: nic[:ip]
           end
+          
+          # configure port forwardings for the machine
+          guest[:box][:network][:port_forwards].each do |name, ports|
+            box.vm.network "forwarded_port", guest: ports[0], host: ports[1],
+              auto_correct: true
+          end
 
           # set hostname
           box.vm.hostname = guest_host_name
