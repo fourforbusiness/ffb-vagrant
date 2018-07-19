@@ -115,6 +115,14 @@ class FfbVagrant
           config.hostmanager.enabled      = conf[:vagrant][:hostmanager][:enabled]
           config.hostmanager.manage_host  = conf[:vagrant][:hostmanager][:manage_host]
           config.hostmanager.manage_guest = conf[:vagrant][:hostmanager][:manage_guest]
+          # check for host name aliases
+          current_aliases = config.hostmanager.aliases
+          if conf[:vagrant][:hostmanager].key?(:aliases)
+            conf[:vagrant][:hostmanager][:aliases].each do |alias|
+              current_aliases.push(alias) 
+            end 
+          end
+          config.hostmanager.aliases = current_aliases
       else
         logger.log(log_level::INFO, "Host manager plugin not found, if you like to let Vagrant manage the Hosts")
         logger.log(log_level::INFO, "It's recommended to install it via `vagrant plugin install vagrant-hostmanager`")
