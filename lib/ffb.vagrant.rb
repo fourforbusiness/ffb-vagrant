@@ -118,8 +118,8 @@ class FfbVagrant
           # check for host name aliases
           current_aliases = config.hostmanager.aliases
           if conf[:vagrant][:hostmanager].key?(:aliases)
-            conf[:vagrant][:hostmanager][:aliases].each do |alias|
-              current_aliases.push(alias) 
+            conf[:vagrant][:hostmanager][:aliases].each do |alias_id, alias|
+              current_aliases.push(alias)
             end 
           end
           config.hostmanager.aliases = current_aliases
