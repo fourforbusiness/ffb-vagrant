@@ -131,21 +131,23 @@ class FfbVagrant
         # ---------configure guest-----------
         # -----------------------------------
         config.vm.define(gid) do |box|
-          # set subdomains as host name aliases
+          # set host name aliases
           config.hostmanager.aliases = []
-          if guest[:box][:network].key?(:subdomains)
-            guest[:box][:network][:subdomains].each do |subdomain|
-                config.hostmanager.aliases.push("#{subdomain}.#{guest_host_name}")
+          subdomain_info_text = "\n"
+          if guest[:box][:network].key?(:aliases)
+            guest[:box][:network][:aliases].each do |a1ias|
+                config.hostmanager.aliases.push("#{a1ias}.#{guest_host_name}")
+                subdomain_info_text = "  #{logger::LOG_COLOR::ERROR}Subdomains:#{logger::LOG_COLOR::RESET}\t\t" + (config.hostmanager.aliases * "#{logger::LOG_COLOR::INFO}\n#{logger::LOG_COLOR::RESET}\t\t\t\t\t") + "#{logger::LOG_COLOR::INFO}\n"
             end
-          end          
+          end
           # setup quick info output after booting the guest
           info = {
             :intro      => "#{logger::LOG_COLOR::INFO}Guest-Infos for the project#{logger::LOG_COLOR::INFO}\n\n",
             :tag        => "#{logger::LOG_COLOR::INFO}Project-Tag:\t\t#{tag}#{logger::LOG_COLOR::INFO}\n",
-            :hosts      => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}",
-            :guest      => "\n  #{logger::LOG_COLOR::WARNING}\t\tGuest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
+            :hosts      => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}\n",
+            :guest      => "  #{logger::LOG_COLOR::WARNING}Guest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
             :domain     => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
-            :subdomains => "  #{logger::LOG_COLOR::ERROR}Subdomains:\t\t" + (config.hostmanager.aliases * ',') + "#{logger::LOG_COLOR::INFO}\n",
+            :subdomains => subdomain_info_text,
             :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{gip}#{logger::LOG_COLOR::INFO}\n",
             :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
             :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-File:\t\t#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/[provider]/private_key#{logger::LOG_COLOR::INFO}\n",
