@@ -115,14 +115,6 @@ class FfbVagrant
           config.hostmanager.enabled      = conf[:vagrant][:hostmanager][:enabled]
           config.hostmanager.manage_host  = conf[:vagrant][:hostmanager][:manage_host]
           config.hostmanager.manage_guest = conf[:vagrant][:hostmanager][:manage_guest]
-          # check for host name aliases
-          current_aliases = config.hostmanager.aliases
-          if conf[:vagrant][:hostmanager].key?(:aliases)
-            conf[:vagrant][:hostmanager][:aliases].each do |alias_id, alias|
-              current_aliases.push(alias)
-            end 
-          end
-          config.hostmanager.aliases = current_aliases
       else
         logger.log(log_level::INFO, "Host manager plugin not found, if you like to let Vagrant manage the Hosts")
         logger.log(log_level::INFO, "It's recommended to install it via `vagrant plugin install vagrant-hostmanager`")
@@ -139,19 +131,27 @@ class FfbVagrant
         # ---------configure guest-----------
         # -----------------------------------
         config.vm.define(gid) do |box|
+          # set subdomains as host name aliases
+          config.hostmanager.aliases = []
+          if guest[:box][:network].key?(:subdomains)
+            guest[:box][:network][:subdomains].each do |subdomain|
+                config.hostmanager.aliases.push("#{subdomain}.#{guest_host_name}")
+            end
+          end          
           # setup quick info output after booting the guest
           info = {
-            :intro    => "#{logger::LOG_COLOR::INFO}Guest-Infos for the project#{logger::LOG_COLOR::INFO}\n\n",
-            :tag      => "#{logger::LOG_COLOR::INFO}Project-Tag:\t\t#{tag}#{logger::LOG_COLOR::INFO}\n",
-            :hosts    => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}",
-            :guest    => "\n  #{logger::LOG_COLOR::WARNING}\t\tGuest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
-            :domain   => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
-            :ip       => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{gip}#{logger::LOG_COLOR::INFO}\n",
-            :os       => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
-            :ssh_file => "  #{logger::LOG_COLOR::ERROR}Ssh-File:\t\t#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/[provider]/private_key#{logger::LOG_COLOR::INFO}\n",
-            :def_pass => "  #{logger::LOG_COLOR::ERROR}MySQL-Pw(default):\t#{tag}#{logger::LOG_COLOR::INFO}\n",
-            :hint     => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
-            :outro    => "#{logger::LOG_COLOR::INFO}"
+            :intro      => "#{logger::LOG_COLOR::INFO}Guest-Infos for the project#{logger::LOG_COLOR::INFO}\n\n",
+            :tag        => "#{logger::LOG_COLOR::INFO}Project-Tag:\t\t#{tag}#{logger::LOG_COLOR::INFO}\n",
+            :hosts      => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}",
+            :guest      => "\n  #{logger::LOG_COLOR::WARNING}\t\tGuest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
+            :domain     => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
+            :subdomains => "  #{logger::LOG_COLOR::ERROR}Subdomains:\t\t" + (config.hostmanager.aliases * ',') + "#{logger::LOG_COLOR::INFO}\n",
+            :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{gip}#{logger::LOG_COLOR::INFO}\n",
+            :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
+            :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-File:\t\t#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/[provider]/private_key#{logger::LOG_COLOR::INFO}\n",
+            :def_pass   => "  #{logger::LOG_COLOR::ERROR}MySQL-Pw(default):\t#{tag}#{logger::LOG_COLOR::INFO}\n",
+            :hint       => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
+            :outro      => "#{logger::LOG_COLOR::INFO}"
           }
           box.vm.post_up_message = info.values.join("\t\t");
 
