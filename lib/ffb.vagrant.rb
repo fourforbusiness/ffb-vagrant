@@ -172,7 +172,7 @@ class FfbVagrant
           # -----------------------------------
           ssh_key_path = "not_set"
           ssh_user = "vagrant"
-          guest[:box][:provider].each do |provider_name, box_settings|
+          guest[:box][:provider].each do |provider_name, box_settings, guest_ip|
             next if !box_settings[:active]
 
             logger.log(log_level::INFO, "#{gid} --> Configuring virtualization provider #{provider_name}")
@@ -202,7 +202,7 @@ class FfbVagrant
                   # -------------------------------------------------------
 
                   config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
-                    box_settings[:elastic_ip]
+                    guest_ip
                   end
 
                   box.access_key_id = box_settings[:access_key_id]
