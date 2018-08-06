@@ -181,7 +181,7 @@ class FfbVagrant
             # -----------------------------------
             case provider_name.to_s
               when Tools::Enum::PROVIDER::VIRTUALBOX
-                ssh_key_path = #{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/virtualbox/private_key
+                ssh_key_path = "#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/virtualbox/private_key"
                 box.vm.provider(provider_name.to_s) do |box, override|
                   box.name = gid
                   box.customize ["modifyvm", :id, "--cpus",         box_settings[:cpus]]
