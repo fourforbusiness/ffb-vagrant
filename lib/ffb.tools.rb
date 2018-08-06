@@ -28,7 +28,7 @@ module Tools
     module Enum::PROVIDER
       VIRTUALBOX = "virtualbox"
       # VMWARE     = "vmware"
-      # AWS        = "aws"
+      AWS        = "aws"
     end
 
     # a list of possible ways to link files into the vm

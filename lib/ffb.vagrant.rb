@@ -27,7 +27,7 @@ class FfbVagrant
 
     vagrant_command = 'unknown'
     ARGV.each do |cmd_arg|
-      vagrant_args = ['box', 'connect', 'destroy', 'global-status', 'halt', 'init', 'login', 'package', 'plugin', 'port', 'powershell', 'provision', 'rdp', 'reload', 'resume', 'share', 'snapshot', 'ssh', 'ssh-config', 'status', 'suspend', 'up', 'validate', 'version']
+      vagrant_args = ['box', 'connect', 'destroy', 'global-status', 'halt', 'init', 'login', 'package', 'plugin', 'port', 'powershell', 'provision', 'rdp', 'reload', 'resume', 'share', 'snapshot', 'ssh', 'ssh-config', 'status', 'suspend', 'up', 'validate', 'version', 'rsync']
       if vagrant_args.include?(cmd_arg)
         vagrant_command = cmd_arg
         break
@@ -126,7 +126,7 @@ class FfbVagrant
         # variable shortcuts
         gid             = "#{guest_id.to_s}_#{tag}_#{guest[:postfix]}"
         guest_host_name = guest[:box][:network].key?(:hostname) ? guest[:box][:network][:hostname] : "#{guest_id.to_s}.#{tag}.#{guest[:postfix]}"
-        gip             = guest[:box][:network][:nics][:default][:ip]
+        guest_ip        = guest[:box][:network][:nics][:default][:ip]
         # -----------------------------------
         # ---------configure guest-----------
         # -----------------------------------
@@ -140,26 +140,11 @@ class FfbVagrant
                 subdomain_info_text = "  #{logger::LOG_COLOR::ERROR}Subdomains:#{logger::LOG_COLOR::RESET}\t\t" + (config.hostmanager.aliases * "#{logger::LOG_COLOR::INFO}\n#{logger::LOG_COLOR::RESET}\t\t\t\t\t") + "#{logger::LOG_COLOR::INFO}\n"
             end
           end
-          # setup quick info output after booting the guest
-          info = {
-            :intro      => "#{logger::LOG_COLOR::INFO}Guest-Infos for the project#{logger::LOG_COLOR::INFO}\n\n",
-            :tag        => "#{logger::LOG_COLOR::INFO}Project-Tag:\t\t#{tag}#{logger::LOG_COLOR::INFO}\n",
-            :hosts      => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}\n",
-            :guest      => "  #{logger::LOG_COLOR::WARNING}Guest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
-            :domain     => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
-            :subdomains => subdomain_info_text,
-            :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{gip}#{logger::LOG_COLOR::INFO}\n",
-            :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
-            :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-File:\t\t#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/[provider]/private_key#{logger::LOG_COLOR::INFO}\n",
-            :def_pass   => "  #{logger::LOG_COLOR::ERROR}MySQL-Pw(default):\t#{tag}#{logger::LOG_COLOR::INFO}\n",
-            :hint       => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
-            :outro      => "#{logger::LOG_COLOR::INFO}"
-          }
-          box.vm.post_up_message = info.values.join("\t\t");
 
           # setup guest box
           box.vm.box      = guest[:box][:name]
           box.vm.box_url  = guest[:box][:url]
+          box.vm.allowed_synced_folder_types = :rsync
 
           # configure network for guest
           guest[:box][:network][:nics].each do |name, nic|
@@ -171,7 +156,7 @@ class FfbVagrant
             end
             box.vm.network "#{nic_type}", ip: nic[:ip]
           end
-          
+
           # configure port forwardings for the machine
           guest[:box][:network][:port_forwards].each do |name, ports|
             box.vm.network "forwarded_port", guest: ports[0], host: ports[1],
@@ -185,14 +170,19 @@ class FfbVagrant
           # -----------------------------------
           # -----configure boxes for guest-----
           # -----------------------------------
+          ssh_key_path = "not_set"
+          ssh_user = "vagrant"
           guest[:box][:provider].each do |provider_name, box_settings|
+            next if !box_settings[:active]
+
+            logger.log(log_level::INFO, "#{gid} --> Configuring virtualization provider #{provider_name}")
+            # -----------------------------------
+            # -----------configure box-----------
+            # -----------------------------------
             case provider_name.to_s
               when Tools::Enum::PROVIDER::VIRTUALBOX
-                logger.log(log_level::INFO, "#{gid} --> Configuring virtualization provider #{provider_name}")
-                # -----------------------------------
-                # -----------configure box-----------
-                # -----------------------------------
-                box.vm.provider(provider_name.to_s) do |box|
+                ssh_key_path = #{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/virtualbox/private_key
+                box.vm.provider(provider_name.to_s) do |box, override|
                   box.name = gid
                   box.customize ["modifyvm", :id, "--cpus",         box_settings[:cpus]]
                   box.customize ["modifyvm", :id, "--ioapic",       box_settings[:ioapic]]
@@ -201,10 +191,55 @@ class FfbVagrant
                   # ubuntu xenial box fix to prevent logfile creation (this is why we can't have nice things! (╯°□°）╯︵ ┻━┻))
                   box.customize ["modifyvm", :id, "--uartmode1",    "disconnected"]
                 end
+              when Tools::Enum::PROVIDER::AWS
+                ssh_key_path = File.expand_path(box_settings[:ssh_private_key_path])
+                ssh_user = box_settings[:ssh_username]
+                box_settings[:ssh_private_key_path] = ssh_key_path
+                box.vm.provider(provider_name.to_s) do |box, override|
+                  # -------------------------------------------------------
+                  # setup a custom ip_resolver so the hostmanager
+                  # is able to make the correct entries in the hosts file
+                  # -------------------------------------------------------
+
+                  config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
+                    box_settings[:elastic_ip]
+                  end
+
+                  box.access_key_id = box_settings[:access_key_id]
+                  box.secret_access_key = box_settings[:secret_access_key]
+                  box.keypair_name = box_settings[:keypair_name]
+                  box.instance_type = box_settings[:instance_type]
+                  box.region = box_settings[:region]
+                  box.ami = box_settings[:ami]
+                  box.elastic_ip = guest_ip
+                  box.security_groups = box_settings[:security_groups]
+                  override.ssh.username = box_settings[:ssh_username]
+                  override.ssh.private_key_path = box_settings[:ssh_private_key_path]
+                end
               else
-                # we currently do not support other types of providers, but they can be added here easily if needed
+              ssh_key_path = "not_set"
+              # we currently do not support other types of providers, but they can be added here easily if needed
                 logger.log(log_level::ERROR, "#{gid} --> Unknown/Unimplemented VM Provider '#{provider_name.to_s}'.\nSkipping...")
             end
+
+            # setup quick info output after booting the guest
+            info = {
+              :intro      => "#{logger::LOG_COLOR::INFO}Guest-Infos for the project#{logger::LOG_COLOR::INFO}\n\n",
+              :tag        => "#{logger::LOG_COLOR::INFO}Project-Tag:\t\t#{tag}#{logger::LOG_COLOR::INFO}\n",
+              :hosts      => "#{logger::LOG_COLOR::INFO}Using Hostmanager:\t#{conf[:vagrant][:hostmanager][:manage_host]}#{logger::LOG_COLOR::INFO}\n",
+              :guest      => "  #{logger::LOG_COLOR::WARNING}Guest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
+              :domain     => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
+              :subdomains => subdomain_info_text,
+              :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{guest_ip}#{logger::LOG_COLOR::INFO}\n",
+              :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
+              :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-Key Location:\t#{ssh_key_path}#{logger::LOG_COLOR::INFO}\n",
+              :ssh_user   => "  #{logger::LOG_COLOR::ERROR}Ssh-Username:\t\t#{ssh_user}#{logger::LOG_COLOR::INFO}\n",
+              :def_pass   => "  #{logger::LOG_COLOR::ERROR}MySQL-Pw(default):\t#{tag}#{logger::LOG_COLOR::INFO}\n",
+              :hint       => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
+              :outro      => "#{logger::LOG_COLOR::INFO}"
+            }
+            box.vm.post_up_message = info.values.join("\t\t");
+
           end
 
           # -----------------------------------
