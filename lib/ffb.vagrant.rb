@@ -19,7 +19,6 @@ class FfbVagrant
   OVERRIDE_CONFIG_FILENAME = "vagrant-override-config.yml"
   LOCAL_USER_SETTINGS_DIR  = "~/.fourforbusiness_vagrant"
 
-
   def FfbVagrant.run(vagrant_environment)
 
     logger             = Tools::Logger
@@ -126,7 +125,6 @@ class FfbVagrant
         # variable shortcuts
         gid             = "#{guest_id.to_s}_#{tag}_#{guest[:postfix]}"
         guest_host_name = guest[:box][:network].key?(:hostname) ? guest[:box][:network][:hostname] : "#{guest_id.to_s}.#{tag}.#{guest[:postfix]}"
-        guest_ip        = guest[:box][:network][:nics][:default][:ip]
         # -----------------------------------
         # ---------configure guest-----------
         # -----------------------------------
@@ -172,7 +170,7 @@ class FfbVagrant
           # -----------------------------------
           ssh_key_path = "not_set"
           ssh_user = "vagrant"
-          guest[:box][:provider].each do |provider_name, box_settings, guest_ip|
+          guest[:box][:provider].each do |provider_name, box_settings|
             next if !box_settings[:active]
 
             logger.log(log_level::INFO, "#{gid} --> Configuring virtualization provider #{provider_name}")
@@ -182,37 +180,46 @@ class FfbVagrant
             case provider_name.to_s
               when Tools::Enum::PROVIDER::VIRTUALBOX
                 ssh_key_path = "#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/virtualbox/private_key"
-                box.vm.provider(provider_name.to_s) do |box, override|
-                  box.name = gid
-                  box.customize ["modifyvm", :id, "--cpus",         box_settings[:cpus]]
-                  box.customize ["modifyvm", :id, "--ioapic",       box_settings[:ioapic]]
-                  box.customize ["modifyvm", :id, "--memory",       box_settings[:memory]]
-                  box.customize ["modifyvm", :id, "--natdnsproxy1", box_settings[:natdnsproxy1]]
+                box.vm.provider(provider_name.to_s) do |virtualbox, override|
+                  virtualbox.name = gid
+                  virtualbox.customize ["modifyvm", :id, "--cpus",         box_settings[:cpus]]
+                  virtualbox.customize ["modifyvm", :id, "--ioapic",       box_settings[:ioapic]]
+                  virtualbox.customize ["modifyvm", :id, "--memory",       box_settings[:memory]]
+                  virtualbox.customize ["modifyvm", :id, "--natdnsproxy1", box_settings[:natdnsproxy1]]
                   # ubuntu xenial box fix to prevent logfile creation (this is why we can't have nice things! (╯°□°）╯︵ ┻━┻))
-                  box.customize ["modifyvm", :id, "--uartmode1",    "disconnected"]
+                  virtualbox.customize ["modifyvm", :id, "--uartmode1",    "disconnected"]
                 end
               when Tools::Enum::PROVIDER::AWS
                 ssh_key_path = File.expand_path(box_settings[:ssh_private_key_path])
                 ssh_user = box_settings[:ssh_username]
                 box_settings[:ssh_private_key_path] = ssh_key_path
-                box.vm.provider(provider_name.to_s) do |box, override|
+                box.vm.provider(provider_name.to_s) do |aws, override|
                   # -------------------------------------------------------
                   # setup a custom ip_resolver so the hostmanager
                   # is able to make the correct entries in the hosts file
                   # -------------------------------------------------------
 
                   config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
-                    guest_ip
+                    if hostname = (vm.ssh_info && vm.ssh_info[:host])
+                        # extract the remote IP fromt he SSH-data of amazon
+                        remote_hostname = vm.ssh_info[:host]
+                        regex = /ec2-(\b(?:\d{1,3}\-){3}\d{1,3}\b)./
+                        extracted_ip_string = regex.match(remote_hostname)[1]
+                        remote_ip = extracted_ip_string.gsub('-', '.')
+                        # return the remote ip of the amazon EC2 instance
+                        remote_ip
+                    end
                   end
 
-                  box.access_key_id = box_settings[:access_key_id]
-                  box.secret_access_key = box_settings[:secret_access_key]
-                  box.keypair_name = box_settings[:keypair_name]
-                  box.instance_type = box_settings[:instance_type]
-                  box.region = box_settings[:region]
-                  box.ami = box_settings[:ami]
-                  box.elastic_ip = guest_ip
-                  box.security_groups = box_settings[:security_groups]
+                  aws.access_key_id = box_settings[:access_key_id]
+                  aws.secret_access_key = box_settings[:secret_access_key]
+                  aws.keypair_name = box_settings[:keypair_name]
+                  aws.instance_type = box_settings[:instance_type]
+                  aws.region = box_settings[:region]
+                  aws.ami = box_settings[:ami]
+                  aws.elastic_ip = box_settings[:elastic_ip]
+                  aws.security_groups = box_settings[:security_groups]
+                  aws.availability_zone = box_settings[:availability_zone]
                   override.ssh.username = box_settings[:ssh_username]
                   override.ssh.private_key_path = box_settings[:ssh_private_key_path]
                 end
@@ -230,7 +237,6 @@ class FfbVagrant
               :guest      => "  #{logger::LOG_COLOR::WARNING}Guest [#{gid}]#{logger::LOG_COLOR::INFO}\n",
               :domain     => "  #{logger::LOG_COLOR::ERROR}Hostname:\t\t#{guest_host_name}#{logger::LOG_COLOR::INFO}\n",
               :subdomains => subdomain_info_text,
-              :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{guest_ip}#{logger::LOG_COLOR::INFO}\n",
               :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
               :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-Key Location:\t#{ssh_key_path}#{logger::LOG_COLOR::INFO}\n",
               :ssh_user   => "  #{logger::LOG_COLOR::ERROR}Ssh-Username:\t\t#{ssh_user}#{logger::LOG_COLOR::INFO}\n",
@@ -239,7 +245,6 @@ class FfbVagrant
               :outro      => "#{logger::LOG_COLOR::INFO}"
             }
             box.vm.post_up_message = info.values.join("\t\t");
-
           end
 
           # -----------------------------------
