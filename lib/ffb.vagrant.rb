@@ -139,9 +139,7 @@ class FfbVagrant
             end
           end
 
-          # setup guest box
-          box.vm.box      = guest[:box][:name]
-          box.vm.box_url  = guest[:box][:url]
+          # setup guest box allowed sync methods
           box.vm.allowed_synced_folder_types = :rsync
 
           # configure network for guest
@@ -179,6 +177,9 @@ class FfbVagrant
             # -----------------------------------
             case provider_name.to_s
               when Tools::Enum::PROVIDER::VIRTUALBOX
+                # name and URL of the box that will be used on the VM
+                box.vm.box      = guest[:box][:name]
+                box.vm.box_url  = guest[:box][:url]
                 ssh_key_path = "#{vagrant_root}/#{vagrant_temp_dir}/machines/#{gid}/virtualbox/private_key"
                 box.vm.provider(provider_name.to_s) do |virtualbox, override|
                   virtualbox.name = gid
@@ -190,10 +191,12 @@ class FfbVagrant
                   virtualbox.customize ["modifyvm", :id, "--uartmode1",    "disconnected"]
                 end
               when Tools::Enum::PROVIDER::AWS
+                # box used for the VM (for AWS there is just a dummy-boy required)
+                box.vm.box = "aws-dummy"
+
                 ssh_key_path = File.expand_path(box_settings[:ssh_private_key_path])
                 ssh_user = box_settings[:ssh_username]
                 box_settings[:ssh_private_key_path] = ssh_key_path
-                box.vm.box = "aws-dummy"
                 logger.log(log_level::INFO, "#{gid} --> Virtualization provider #{provider_name} uses box image \"aws-dummy\"")
                 box.vm.provider(provider_name.to_s) do |aws, override|
                   # -------------------------------------------------------
