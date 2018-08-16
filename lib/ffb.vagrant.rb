@@ -193,6 +193,8 @@ class FfbVagrant
                 ssh_key_path = File.expand_path(box_settings[:ssh_private_key_path])
                 ssh_user = box_settings[:ssh_username]
                 box_settings[:ssh_private_key_path] = ssh_key_path
+                box.vm.box = "aws-dummy"
+                logger.log(log_level::INFO, "#{gid} --> Virtualization provider #{provider_name} uses box image \"aws-dummy\"")
                 box.vm.provider(provider_name.to_s) do |aws, override|
                   # -------------------------------------------------------
                   # setup a custom ip_resolver so the hostmanager
