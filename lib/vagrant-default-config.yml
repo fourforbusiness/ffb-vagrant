@@ -42,7 +42,6 @@ default_guest:
         force_local: true
     provider:
       virtualbox:
-        active: true
         memory: '4096'
         cpus: '2'
         ioapic: 'on'

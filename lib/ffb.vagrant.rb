@@ -218,7 +218,7 @@ class FfbVagrant
                   aws_s_key = box_settings[:secret_access_key] unless box_settings[:secret_access_key].nil?
                   aws_s_key = ENV["secret_access_key"] unless ENV["secret_access_key"].nil?
                   aws.secret_access_key = aws_s_key
-                  
+
                   aws.access_key_id = box_settings[:access_key_id]
                   aws.keypair_name = box_settings[:keypair_name]
                   aws.instance_type = box_settings[:instance_type]
