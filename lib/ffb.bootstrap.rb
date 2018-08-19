@@ -56,7 +56,7 @@ $*.each do |arg|
 end
 
 # base url for loading the filesof the framework from git
-remote_git_base_uri = "https://raw.githubusercontent.com/fourforbusiness/ffb-vagrant/dev"
+remote_git_base_uri = "https://raw.githubusercontent.com/fourforbusiness/ffb-vagrant"
 # this mapping maps local files and files on git, so the filename on both sides doesn't matter
 filename_mapping = [
     { remote: vagrant_main_script_filename, local: vagrant_main_script_filename },
