@@ -33,7 +33,7 @@ vagrant_ffb_path    = "#{current_working_dir}/#{vagrant_ffb_dirname}"
 vagrant_ffb_path    = "#{current_working_dir}"
 vagrant_main_script_filename = "ffb.vagrant.rb"
 # prod is our default environment
-vagrant_environment = "dev"
+vagrant_environment = "prod"
 # $* is an array containing all console arguments
 $*.each do |arg|
   # --env is our custom argument
