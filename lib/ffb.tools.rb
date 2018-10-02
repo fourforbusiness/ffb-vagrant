@@ -4,24 +4,34 @@
 # --------------------------------
 # ---------custom modules---------
 # --------------------------------
-
+# a collection of tools that are used in the framework
 module Tools
+
+  # the global log-prefix to identify log output from the vagrant framework
   LOG_PREFIX = 'Ffb-Vagrant: '
+
+  # a collection of enums used in the application
   module Tools::Enum
+
+    # this list contains the known and supported provisioners
+    # the commented provisioners are not yet implemented
     module Enum::PROVISIONER
       ANSIBLE = "ansible"
-      PUPPET  = "puppet"
-      DOCKER  = "docker"
-      SHELL   = "shell"
-      CHEF    = "chef"
+      # SHELL   = "shell"
+      # PUPPET  = "puppet"
+      # DOCKER  = "docker"
+      # CHEF    = "chef"
     end
 
+    # this list contains the known and supported virtualization tools
+    # the commented tools are not yet implemented
     module Enum::PROVIDER
       VIRTUALBOX = "virtualbox"
-      VMWARE     = "vmware"
       AWS        = "aws"
+      # VMWARE     = "vmware"
     end
 
+    # a list of possible ways to link files into the vm
     module Enum::FILEMOUNT_TYPE
       NONE  = "none"
       NFS   = "nfs"
@@ -30,7 +40,10 @@ module Tools
     end
   end
 
+  # a simple logging engine
   module Logger
+
+    # a collection of log levels to identify the log level of the output
     module Logger::LOG_LEVEL
       DEBUG = 0
       INFO = 1
@@ -38,6 +51,7 @@ module Tools
       ERROR = 4
     end
 
+    # different log levels are displayed in different colors
     module Logger::LOG_COLOR
       DEBUG   = ""
       INFO    = "\e[32m"
@@ -46,6 +60,7 @@ module Tools
       RESET   = "\e[0m"
     end
 
+    # log a specific message on the console with the correct level and color
     def self.log(log_level, text)
       output_message = nil
       case log_level
@@ -66,6 +81,7 @@ module Tools
 
   end
 
+  # a simple module to get user-feedback
   module Feedback
     def self.yesno
       puts "(y/n)"
@@ -79,29 +95,46 @@ module Tools
     end
   end
 
+  # a collection of functions that help working with data
   module Data
+    # load the logger
     include Tools::Logger
+    # load yaml from a file
+    # path(string), the absolute path from where to load the file
+    # exit_on_fail(bool), default: false, if loading the file is mandatory for the execution of the program, it can be stopped on an error
+    # silent(bool), default: true, if the file cannot be loaded, the program can display a warning
+    # description(string), default: nil, a brief description of the files purpose
+    # symbolize_data(bool), default: true, if the result should be a hash with symbolized keys
     def self.getyaml(path, exit_on_fail = false, silent = true, description = nil, symbolize_data = true)
+      # get the absolute path of the file
       path = File.expand_path(path)
-      if File.file?(path)
+      begin
+        # load the file via ruby
         data = YAML.load_file(path)
         if description
+          # display a log message on the console
           Logger.log(Logger::LOG_LEVEL::INFO, "Loaded file #{description} from #{path}.")
         end
+        # return the loaded data
         return symbolize_data ? symbolize(data) : data
-      else
+      rescue
+        # message if the file could not be loaded
         message = "Could not load file from #{path}"
+        # exit with error message
         if exit_on_fail
           Logger.log(Logger::LOG_LEVEL::ERROR, "#{message}, Exiting...")
           exit 1
-        else
-          unless silent
-            Logger.log(Logger::LOG_LEVEL::WARNING, message)
-          end
+        end
+        # continue with error message
+        unless silent
+          Logger.log(Logger::LOG_LEVEL::WARNING, message)
         end
       end
     end
 
+    # merges 2 collections recursively and creates a sum of both
+    # the input can be two arrays or two hashes or a mix
+    # to enable debug output, just set debug to true
     def self.rec_deep_merge(source, dest, depth="")
       debug = false
       depth = "  #{depth}"
@@ -111,9 +144,14 @@ module Tools
       debug == true ? puts("#{depth}dest   :#{dest.class.name}"):false
       debug == true ? puts("#{depth}-----------------"):false
 
+      # we crate full copys of the source and the destination to prevent changing the original objects
       src_dup = source.dup
       dst_dup = dest.dup
+
+      # we always return a hash object
       return_value = {}
+
+      # check if both objects are arrays
       if src_dup.is_a?(Array) and dst_dup.is_a?(Array)
 
         debug == true ? puts("#{depth}src_dup and dst_dup are arrays"):false
@@ -131,6 +169,7 @@ module Tools
             return_value.push(value)
           end
         end
+      # if both objects are hashes
       elsif src_dup.is_a?(Hash) and dst_dup.is_a?(Hash)
         # copy stuff into dst that doesnt exist there but in source
         src_dup.each do |src_k, src_v|
@@ -234,6 +273,7 @@ module Tools
       return_value
     end
 
+    # this method exchanges all string-type keys of a hash with symbols
     def self.symbolize(hash)
       symbolized_hash = {}
       hash.each do |k, v|
@@ -265,22 +305,31 @@ module Tools
     end
   end
 
+  # module for system related operations
   module System
+    # the three types of operation systems
     module System::OS_TYPE
       WIN  = "win"
       MAC  = "mac"
       LNX  = "linux"
     end
+    # detects the current operating system
     def self.detect
+      # windows
       os_detected = (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil ? "win" : "unknown"
+      # mac
       os_detected = (/darwin/ =~ RUBY_PLATFORM) != nil ? "mac" : os_detected
       # for non ruby devs: ruby always returns the result of the last processed line of code
+      # linux/unix
       (!os_detected.eql? "win" and !os_detected.eql? "mac") ? "linux" : os_detected
     end
   end
 
+  # this module contains user related actions
   module User
     include Tools::Logger
+    # a simple setup routine that politely asks the user for the permissions to change
+    # some things on the current host-machine
     def self.setup(local_conf_dir, local_conf_file, vagrant_environment)
       is_build_env = vagrant_environment == 'build'
       use_hostmanager = false || is_build_env
@@ -288,14 +337,21 @@ module Tools
       local_conf_path =  local_conf_dir + "/" + local_conf_file
       unless File.file?(local_conf_path)
         Logger.log(LOG_LEVEL::WARNING,'The local config file for Vagrant could not be found, create it?')
+        # in case the environment is 'build' we do not want to ask for permissions because
+        # the build-server needs that files and configs in any case
         if is_build_env || Tools::Feedback::yesno
+          # create the directory for the custom configuration files
           FileUtils::mkdir_p local_conf_dir
+          # if usage of the hostmanager is wanted
           Logger.log(LOG_LEVEL::WARNING, 'Do you want to let Vagrant manage the Host-Entries on the current host?')
           use_hostmanager = is_build_env ? true : Tools::Feedback::yesno
           begin
+            # create the config file and write the appropriate content into it
             File.write(local_conf_path, "--- \nvagrant:\n  hostmanager:\n    manage_host: #{use_hostmanager}\n")
+            # just some log output
             Logger.log(LOG_LEVEL::INFO, "Successfully created #{local_conf_path}")
           rescue
+            # if there was an error, we stop program execution
             Logger.log(LOG_LEVEL::ERROR, "Could not write file at #{local_conf_path}. Exiting...")
             exit 1
           end

@@ -50,6 +50,10 @@ default_guest:
       nics:
         default:
           ip: 'no.i.p.set'
+      port_forwards:
+        web:
+          - 80
+          - 9999
     filesystem:
       prepare_web_root: true
       folders:
