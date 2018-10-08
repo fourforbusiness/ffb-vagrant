@@ -86,7 +86,7 @@ unless vagrant_environment == VAGRANT_ENVIRONMENT::LOCAL
       # this helps for diving environmental settings in file or configuration related environments
       # for example the build environment uses the same files like the production environment
       # but the build environment will not ask for host-manager settings, the difference is configuration based
-      if(file_contents_downloaded.match(/^Not Found/))
+      if file_contents_downloaded.match(/^Not Found/)
         remote_uri = "#{remote_git_base_uri}/#{VAGRANT_ENVIRONMENT::PRODUCTION}/lib/#{filename[:remote]}"
         file_contents_downloaded = Net::HTTP.get(URI.parse(remote_uri))
       end

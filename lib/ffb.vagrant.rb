@@ -26,7 +26,7 @@ class FfbVagrant
 
     vagrant_command = 'unknown'
     ARGV.each do |cmd_arg|
-      vagrant_args = ['box', 'connect', 'destroy', 'global-status', 'halt', 'init', 'login', 'package', 'plugin', 'port', 'powershell', 'provision', 'rdp', 'reload', 'resume', 'share', 'snapshot', 'ssh', 'ssh-config', 'status', 'suspend', 'up', 'validate', 'version', 'rsync']
+      vagrant_args = %w('box', 'connect', 'destroy', 'global-status', 'halt', 'init', 'login', 'package', 'plugin', 'port', 'powershell', 'provision', 'rdp', 'reload', 'resume', 'share', 'snapshot', 'ssh', 'ssh-config', 'status', 'suspend', 'up', 'validate', 'version', 'rsync')
       if vagrant_args.include?(cmd_arg)
         vagrant_command = cmd_arg
         break
@@ -38,7 +38,6 @@ class FfbVagrant
     # directories
     self_dir           = File.dirname(File.expand_path(__FILE__))
     vagrant_root       = File.expand_path("#{self_dir}/..")
-    project_root       = File.expand_path("#{vagrant_root}/..")
     vagrant_temp_dir   = ".vagrant"
     ffb_temp_dir       = ".ffb"
     user_settings_dir  = File.expand_path(LOCAL_USER_SETTINGS_DIR)
@@ -64,7 +63,7 @@ class FfbVagrant
     override_conf      = Tools::Data::getyaml(override_conf_path, false, true, "override configuration")
     conf               = Tools::Data.rec_deep_merge(override_conf.nil? ? {} : override_conf, conf)
 
-    # setup shortcut vars
+    # setup shortcut var for projecttag
     tag = conf[:project][:tag]
     # make sure we have the correct vagrant version installed
     Vagrant.require_version conf[:vagrant][:version]
@@ -75,7 +74,7 @@ class FfbVagrant
           # when nfs is enabled for a folder we have to make sure some plugins are installed on the host system
           guest[:box][:filesystem][:folders].each do |folder_name, folder|
             if folder[:mounttype].eql? Tools::Enum::FILEMOUNT_TYPE::NFS
-              logger.log(log_level::INFO, "Detected NFS, requiring additional plugins")
+              logger.log(log_level::INFO, "Detected NFS mount for #{folder_name}, requiring additional plugins")
               plugins[:load].push('vagrant-bindfs')
               if  Tools::System::detect.eql? Tools:System::OS_TYPE::WIN
                 plugins[:load].push('vagrant-winnfsd')
@@ -110,10 +109,10 @@ class FfbVagrant
       # ---------setup hostmanager---------
       # -----------------------------------
       if Vagrant.has_plugin?("vagrant-hostmanager")
-          logger.log(log_level::INFO, "Host manager plugin found, loading settings")
-          config.hostmanager.enabled      = conf[:vagrant][:hostmanager][:enabled]
-          config.hostmanager.manage_host  = conf[:vagrant][:hostmanager][:manage_host]
-          config.hostmanager.manage_guest = conf[:vagrant][:hostmanager][:manage_guest]
+        logger.log(log_level::INFO, "Host manager plugin found, loading settings")
+        config.hostmanager.enabled      = conf[:vagrant][:hostmanager][:enabled]
+        config.hostmanager.manage_host  = conf[:vagrant][:hostmanager][:manage_host]
+        config.hostmanager.manage_guest = conf[:vagrant][:hostmanager][:manage_guest]
       else
         logger.log(log_level::INFO, "Host manager plugin not found, if you like to let Vagrant manage the Hosts")
         logger.log(log_level::INFO, "It's recommended to install it via `vagrant plugin install vagrant-hostmanager`")
@@ -169,7 +168,7 @@ class FfbVagrant
           ssh_key_path = "not_set"
           ssh_user = "vagrant"
           guest[:box][:provider].each do |provider_name, box_settings|
-            next if !box_settings[:active]
+            next unless box_settings[:active]
 
             logger.log(log_level::INFO, "#{gid} --> Configuring virtualization provider #{provider_name}")
             # -----------------------------------
@@ -205,10 +204,10 @@ class FfbVagrant
                   # -------------------------------------------------------
 
                   config.hostmanager.ip_resolver = proc do |vm, resolving_vm|
-                    if hostname = (vm.ssh_info && vm.ssh_info[:host])
+                    if hostname == (vm.ssh_info && vm.ssh_info[:host])
                         # extract the remote IP fromt he SSH-data of amazon
                         remote_hostname = vm.ssh_info[:host]
-                        regex = /ec2-(\b(?:\d{1,3}\-){3}\d{1,3}\b)./
+                        regex = /ec2-(\b(?:\d{1,3}-){3}\d{1,3}\b)./
                         extracted_ip_string = regex.match(remote_hostname)[1]
                         remote_ip = extracted_ip_string.gsub('-', '.')
                         # return the remote ip of the amazon EC2 instance
@@ -218,6 +217,7 @@ class FfbVagrant
 
                   # read secret access key from file system or environment
                   # environment wins precendence
+                  aws_s_key = nil
                   aws_s_key = box_settings[:secret_access_key] unless box_settings[:secret_access_key].nil?
                   aws_s_key = ENV["secret_access_key"] unless ENV["secret_access_key"].nil?
                   aws.secret_access_key = aws_s_key
@@ -254,7 +254,7 @@ class FfbVagrant
               :hint       => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
               :outro      => "#{logger::LOG_COLOR::INFO}"
             }
-            box.vm.post_up_message = info.values.join("\t\t");
+            box.vm.post_up_message = info.values.join("\t\t")
           end
 
           # -----------------------------------
@@ -275,9 +275,9 @@ class FfbVagrant
               when Tools::Enum::PROVISIONER::ANSIBLE
                 # decide whether to use ansible on the host or the guest system
                 # this check is mandatory for working under windows
-                ansible_mode = Tools::System::detect.eql?(Tools::System::OS_TYPE::WIN) == true ? "ansible_local" : "ansible"
+                ansible_mode = Tools::System::detect.eql?(Tools::System::OS_TYPE::WIN) ? "ansible_local" : "ansible"
                 # its possible to force ansible local provision if needed
-                ansible_mode = provisioner[:force_local] == true ? "ansible_local" : ansible_mode
+                ansible_mode = provisioner[:force_local] ? "ansible_local" : ansible_mode
                 # if ansible is running on the host machine, we do not need any remote paths,
                 # but if its running in the guest, we need to use guest-specific paths
                 local_ansible_base_dir       = "#{vagrant_local_cwd}/#{pdir[:cwd]}"
@@ -300,9 +300,9 @@ class FfbVagrant
                 roles_search_path            = "#{remote_ansible_base_dir}/#{pdir[:galaxy][:roles]}:#{remote_ansible_base_dir}/#{pdir[:roles]}"
                 remote_playbooks_dir         = "#{remote_ansible_base_dir}/#{pdir[:playbooks]}"
 
-                # check if
+                # check if provisioning was already done
                 provisioning_done = true
-                guest[:box][:provider].each do |provider, data|
+                guest[:box][:provider].each do |provider|
                   provisioning_done = provisioning_done && File.exists?("#{provisioning_check_file_path}/#{provider}/action_provision")
                 end
 
@@ -331,8 +331,8 @@ class FfbVagrant
                     ansible.galaxy_roles_path = roles_search_path
                     ansible.config_file       = ansible_cfg_path
                     ansible.galaxy_command    = provisioner[:galaxy][:cmd]
-                    ansible.verbose           = provisioner.has_key?(:log_level) == true ? provisioner[:log_level] : nil
-                    ansible_extra_vars        = provisioner.has_key?(:extra_vars) == true ? provisioner[:extra_vars] : { }
+                    ansible.verbose           = provisioner.has_key?(:log_level) ? provisioner[:log_level] : nil
+                    ansible_extra_vars        = provisioner.has_key?(:extra_vars) ? provisioner[:extra_vars] : { }
                     # add custom extra vars
                     vagrant_extra_vars = {
                       app_host:               guest_host_name,
@@ -359,10 +359,10 @@ class FfbVagrant
                   "#{folder[:nfs][:bind_folder]}",
                   # nfs settings
                   nfs:                true,
-                  mount_options:      ['rw', 'actimeo=1'],
+                  mount_options:      %w('rw', 'actimeo=1'),
                   nfs_version:        3,
                   nfs_udp:            false,
-                  linux__nfs_options: ['rw','no_subtree_check','all_squash']
+                  linux__nfs_options: %w('rw','no_subtree_check','all_squash')
                 )
                 if Vagrant.has_plugin?("vagrant-bindfs")
                   logger.log(log_level::INFO, "#{gid} --> Bindfs detected.")

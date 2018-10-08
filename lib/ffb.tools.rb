@@ -132,11 +132,12 @@ module Tools
       end
     end
 
-    # merges 2 collections recursively and creates a sum of both
+    # merges 2 collections recursively and creates a hash with contents of both
     # the input can be two arrays or two hashes or a mix
-    # to enable debug output, just set debug to true
     def self.rec_deep_merge(source, dest, depth="")
+      # to enable debug output, just set debug to true
       debug = false
+      # shows us how deep we are in nested structures
       depth = "  #{depth}"
 
       debug == true ? puts("#{depth}------start------"):false
@@ -144,7 +145,7 @@ module Tools
       debug == true ? puts("#{depth}dest   :#{dest.class.name}"):false
       debug == true ? puts("#{depth}-----------------"):false
 
-      # we crate full copys of the source and the destination to prevent changing the original objects
+      # we crate full copies of both source and destination to prevent unintended changes to the original objects
       src_dup = source.dup
       dst_dup = dest.dup
 
@@ -157,6 +158,7 @@ module Tools
         debug == true ? puts("#{depth}src_dup and dst_dup are arrays"):false
         debug == true ? puts("#{depth}-----------------"):false
 
+        # initialize an empty array to store the contents of the merged arrays
         return_value = []
         src_dup.each_with_index do |value, index|
 
@@ -281,14 +283,14 @@ module Tools
           symbolized_hash[k.to_sym] = symbolize(v)
         elsif v.is_a?(Array)
           if k.is_a?(String)
-            symbolizedSubArray = []
+            symbolized_array = []
             v.each do |arrayItem|
               if arrayItem.is_a?(Hash)
-                symbolizedSubArray.push(symbolize(arrayItem))
+                symbolized_array.push(symbolize(arrayItem))
               else
-                symbolizedSubArray.push(arrayItem)
+                symbolized_array.push(arrayItem)
               end
-              symbolized_hash[k.to_sym] = symbolizedSubArray
+              symbolized_hash[k.to_sym] = symbolized_array
             end
           elsif k.is_a?(Symbol)
             symbolized_hash[k] = v.inject({}){|memo,(key,val)| memo[key] = val; memo}
@@ -332,7 +334,6 @@ module Tools
     # some things on the current host-machine
     def self.setup(local_conf_dir, local_conf_file, vagrant_environment)
       is_build_env = vagrant_environment == 'build'
-      use_hostmanager = false || is_build_env
       local_conf_dir = File.expand_path("#{local_conf_dir}")
       local_conf_path =  local_conf_dir + "/" + local_conf_file
       unless File.file?(local_conf_path)
