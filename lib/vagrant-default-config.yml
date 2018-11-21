@@ -7,6 +7,9 @@ vagrant:
     manage_host: false
     manage_guest: true
   require_version: '>= 2.0.3'
+  ssh:
+    private_key_filename: id_rsa
+    public_key_filename: id_rsa.pub
 default_guest:
   postfix: local
   box:
