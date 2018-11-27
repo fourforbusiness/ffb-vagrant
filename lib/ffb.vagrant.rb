@@ -169,28 +169,38 @@ class FfbVagrant
           # -----------------------------------
           # ---------ssh configuration---------
           # -----------------------------------
-          key_folder_path = "#{conf[:vagrant][:ssh][:key_folder_path]}"
-          private_key = "#{Dir.home}/.ssh/#{conf[:vagrant][:ssh][:private_key_filename]}"
-          public_key =  "#{Dir.home}/.ssh/#{conf[:vagrant][:ssh][:public_key_filename]}"
-          # private key
-          config.ssh.forward_agent = true
-          # we keep the unsecure key for the provisioning itself
-          config.ssh.private_key_path = [ '~/.vagrant.d/insecure_private_key', "#{private_key}" ]
-          config.ssh.insert_key = false
-          # public key (for authorization purposes)
-          ssh_pub_key = File.readlines(Pathname.new("#{public_key}").realpath).first.strip
-          $script = <<-SCRIPT
-            echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
-            echo #{ssh_pub_key} >> /root/.ssh/authorized_keys
-          SCRIPT
-          # provision the keys to the VM
-          box.vm.provision "shell", inline: $script
+          ssh_user = "vagrant"
+          if conf[:vagrant][:ssh][:use_host_key]
+            logger.log(log_level::INFO, "#{gid} --> Configuring usage of host ssh keys")
+            #generated_key = File.expand_path("./.vagrant/machines/shop_shuyao_local/virtualbox/private_key")
+            key_folder_path = "#{conf[:vagrant][:ssh][:key_folder_path]}"
+            private_key = "#{Dir.home}/.ssh/#{conf[:vagrant][:ssh][:private_key_filename]}"
+            public_key =  "#{Dir.home}/.ssh/#{conf[:vagrant][:ssh][:public_key_filename]}"
+
+            ssh_pub_key = File.readlines(Pathname.new("#{public_key}").realpath).first.strip
+            ssh_prv_key = File.open(Pathname.new("#{private_key}").realpath).read
+            box.ssh.username = "vagrant"
+
+            # copy ssh-key to the vm via shell script
+            $script = <<-SCRIPT
+              echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
+              echo "#{ssh_prv_key}" > /home/vagrant/.ssh/id_rsa
+              chmod 0600 /home/vagrant/.ssh/id_rsa
+              chown vagrant:vagrant /home/vagrant/.ssh/id_rsa
+            SCRIPT
+
+            # provision the keys to the VM
+            box.vm.provision "shell", inline: $script
+            ssh_hint = "#{logger::LOG_COLOR::WARNING}please run \"eval `ssh-agent -s`\" and \"ssh-add ~/.ssh/id_rsa\" on the guest to add the imported key.#{logger::LOG_COLOR::INFO}\n"
+          else
+            private_key = File.expand_path("#{self_dir}/../.vagrant/machines/#{gid}/virtualbox/private_key")
+            ssh_hint = ""
+          end
 
           # configure virtual boxes, so the VM will have the appropriate name and ressources
           # -----------------------------------
           # -----configure boxes for guest-----
           # -----------------------------------
-          ssh_user = "vagrant"
           guest[:box][:provider].each do |provider_name, box_settings|
             next if !box_settings[:active]
 
@@ -258,8 +268,6 @@ class FfbVagrant
                   box.customize ["modifyvm", :id, "--uartmode1",    "disconnected"]
                 end
               else
-              ssh_key_path = "not_set"
-              # we currently do not support other types of providers, but they can be added here easily if needed
                 # we currently do not support other types of providers, but they can be added here easily if needed
                 logger.log(log_level::ERROR, "#{gid} --> Unknown/Unimplemented VM Provider '#{provider_name.to_s}'.\nSkipping...")
             end
@@ -275,9 +283,10 @@ class FfbVagrant
               :ip         => "  #{logger::LOG_COLOR::ERROR}IP (default):\t\t#{gip}#{logger::LOG_COLOR::INFO}\n",
               :os         => "  #{logger::LOG_COLOR::ERROR}Guest-Os:\t\t#{guest[:box][:name]}#{logger::LOG_COLOR::INFO}\n",
               :ssh_file   => "  #{logger::LOG_COLOR::ERROR}Ssh-File:\t\t#{"#{private_key}"}#{logger::LOG_COLOR::INFO}\n",
-              :ssh_user   => "  #{logger::LOG_COLOR::ERROR}Ssh-Username:\t\t#{ssh_user}#{logger::LOG_COLOR::INFO}\n",
+              :ssh_user   => "  #{logger::LOG_COLOR::ERROR}Ssh-Username:\t\t#{box.ssh.username}#{logger::LOG_COLOR::INFO}\n",
               :def_pass   => "  #{logger::LOG_COLOR::ERROR}MySQL-Pw(default):\t#{tag}#{logger::LOG_COLOR::INFO}\n",
               :hint       => "#{logger::LOG_COLOR::WARNING}Please read the readme.md before you start working.#{logger::LOG_COLOR::INFO}\n",
+              :ssh        => "#{ssh_hint}",
               :outro      => "#{logger::LOG_COLOR::INFO}"
             }
             box.vm.post_up_message = info.values.join("\t\t");
