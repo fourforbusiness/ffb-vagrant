@@ -8,7 +8,7 @@
 module Tools
 
   # the global log-prefix to identify log output from the vagrant framework
-  LOG_PREFIX = 'Ffb-Vagrant: '
+  LOG_PREFIX = 'Tfr-Vagrant: '
 
   # a collection of enums used in the application
   module Tools::Enum

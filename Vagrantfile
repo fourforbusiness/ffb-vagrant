@@ -1,4 +1,5 @@
-fc = Net::HTTP.get(URI.parse("https://gist.githubusercontent.com/tfr-ffb/7e1ac6dcdc7d168e63ecb87601a75821/raw/ffb.bootstrap.rb"))
-unless File.file?(".ffb"); FileUtils::mkdir_p(".ffb"); end
-File.write(".ffb/ffb.bootstrap.rb", fc)
-require_relative ".ffb/ffb.bootstrap.rb"
+require 'open-uri'
+fc = open('https://gist.github.com/Tobias-Fischer-Official/e4d48261c64e7f6ee5ccac77ab7aa497/raw/tfr.bootstrap.rb').read
+unless File.file?(".tfr"); FileUtils::mkdir_p(".tfr"); end
+File.write(".tfr/tfr.bootstrap.rb", fc)
+require_relative ".tfr/tfr.bootstrap.rb"
