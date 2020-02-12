@@ -56,7 +56,7 @@ $*.each do |arg|
 end
 
 # base url for loading the filesof the framework from git
-remote_git_base_uri = "https://raw.githubusercontent.com/Tobias-Fischer-Official/tfr-vagrant"
+remote_git_base_uri = "https://raw.githubusercontent.com/Tobias-Fischer-Official/tfr-vagrant/"
 # this mapping maps local files and files on git, so the filename on both sides doesn't matter
 filename_mapping = [
     { remote: vagrant_main_script_filename, local: vagrant_main_script_filename },
@@ -77,6 +77,7 @@ end
 unless vagrant_environment == VAGRANT_ENVIRONMENT::LOCAL
 #download the correct files from gist
   filename_mapping.each do |filename|
+	puts filename
     # build local and remote uri
     remote_uri = "#{remote_git_base_uri}/#{vagrant_environment}/lib/#{filename[:remote]}"
     local_uri = "#{vagrant_tfr_path}/#{filename[:local]}"
