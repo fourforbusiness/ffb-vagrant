@@ -80,9 +80,9 @@ unless vagrant_environment == VAGRANT_ENVIRONMENT::LOCAL
     # build local and remote uri
     remote_uri = "#{remote_git_base_uri}/#{vagrant_environment}/lib/#{filename[:remote]}"
     local_uri = "#{vagrant_tfr_path}/#{filename[:local]}"
+	puts remote_uri
     begin
-      file_contents_downloaded = Net::HTTP.get(URI.parse(remote_uri))
-	  puts remote_uri
+      file_contents_downloaded = Net::HTTP.get(URI.parse(remote_uri))	  
       # if remote files cant be found, use production environment files
       # this helps for diving environmental settings in file or configuration related environments
       # for example the build environment uses the same files like the production environment
