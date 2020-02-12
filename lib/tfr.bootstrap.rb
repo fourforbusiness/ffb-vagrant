@@ -1,3 +1,5 @@
+puts("i got loaded")
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 #
@@ -8,8 +10,6 @@
 require 'net/http'
 require 'optparse'
 # if the tools are already downloaded/existing locally, we load them for logging output
-
-puts("hello world")
 
 current_working_dir = File.dirname(File.expand_path(__FILE__))
 tfr_tools_filename  = "tfr.tools.rb"

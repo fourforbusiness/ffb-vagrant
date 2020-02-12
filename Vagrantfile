@@ -5,4 +5,5 @@ unless File.file?(".tfr"); FileUtils::mkdir_p(".tfr"); end
 
 File.write(".tfr/tfr.bootstrap.rb", fc)
 
+puts("loading file")
 require_relative ".tfr/tfr.bootstrap.rb"
